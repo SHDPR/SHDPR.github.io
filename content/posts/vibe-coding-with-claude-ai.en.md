@@ -34,14 +34,6 @@ Claude: In a Vercel serverless environment, a server can't reliably
         directly from the server component using the SDK.
 ```
 
-```
-Me:     I want a dog avatar. Cute and realistic.
-
-Claude: Here are 10 golden retriever candidates. Pick one.
-
-Me:     I don't like any of them. Use my actual photo. Here's the file.
-        Replace the background with white and make the face bigger.
-```
 
 ```
 Me:     I want a Korean/English toggle button in the header.
