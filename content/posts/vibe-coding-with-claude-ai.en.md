@@ -70,7 +70,7 @@ chore: change category buttons from pill to rectangle shape
 chore: reduce padding above recent posts section
 ```
 
-From "build me a blog" to now: 30+ commits. Time taken: two days.
+From "build me a blog" to now: 30+ commits. Time taken: around 6 hours.
 
 ## Tips for Using Claude AI Faster and Smarter
 

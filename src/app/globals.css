@@ -101,7 +101,7 @@ body {
 /* Prose overrides */
 .prose {
   --tw-prose-body: var(--text-primary);
-  --tw-prose-headings: var(--text-primary);
+  --tw-prose-headings: var(--accent-1);
   --tw-prose-lead: var(--text-muted);
   --tw-prose-links: var(--accent-1);
   --tw-prose-bold: var(--text-primary);

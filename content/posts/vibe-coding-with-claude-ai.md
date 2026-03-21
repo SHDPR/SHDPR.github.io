@@ -70,7 +70,7 @@ chore: change category buttons from pill to rectangle shape
 chore: reduce padding above 최근 포스트 section
 ```
 
-처음 "블로그 만들어줘"부터 지금까지 총 30개 이상의 커밋. 기간은 이틀.
+처음 "블로그 만들어줘"부터 지금까지 총 30개 이상의 커밋. 걸린 시간은 약 6시간.
 
 ## Claude AI를 더 빠르고 스마트하게 쓰는 법
 
