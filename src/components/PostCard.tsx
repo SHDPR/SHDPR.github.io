@@ -22,7 +22,10 @@ export default function PostCard({ post }: PostCardProps) {
           {post.title}
         </h2>
         {post.description && (
-          <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+          <p
+            className="post-title mt-1.5 text-sm leading-relaxed"
+            style={{ color: "var(--text-muted)" }}
+          >
             {post.description}
           </p>
         )}
