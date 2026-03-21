@@ -7,11 +7,14 @@ description: "You can build your own website with no prior coding knowledge"
 
 This blog itself is the proof.
 
-I had never done web development. I didn't know what Next.js, Tailwind, or Redis were. Yet I built this blog entirely through conversation with Claude AI. Here's an honest account of how it went.
+I had never done web development. I didn't know what Next.js, Tailwind, or Redis were.
+Yet I built this blog entirely through conversation with Claude AI.
+Here's an honest account of how it went.
 
 ## How It Started
 
-I didn't know where to begin. It started with a single sentence: "I want to build a blog." Claude suggested the tech stack, and I just said yes.
+I didn't know where to begin. It started with a single sentence: "I want to build a blog."
+Claude suggested the tech stack, and I just said yes.
 
 I didn't write a single line of code myself.
 
@@ -33,7 +36,6 @@ Claude: In a Vercel serverless environment, a server can't reliably
         make HTTP requests to itself. I've changed it to call Redis
         directly from the server component using the SDK.
 ```
-
 
 ```
 Me:     I want a Korean/English toggle button in the header.
@@ -68,30 +70,19 @@ From "build me a blog" to now: 30+ commits. Time taken: around 6 hours.
 
 Lessons learned from actually doing this.
 
-**Use screenshots liberally**
+**Use screenshots liberally** — A single screenshot beats a paragraph of description. UI problems especially — showing is always faster than explaining. I attached a screenshot to almost every UI request.
 
-A single screenshot beats a paragraph of description. UI problems especially — showing is always faster than explaining. I attached a screenshot to almost every UI request.
+**Set your principles upfront** — I defined three rules from the start: design first → approve before coding / ask when unsure / every change gets a Git commit. The top-down design principle is especially important: make Claude explain the implementation plan before writing any code, then approve it before proceeding. Claude remembers and follows these rules even across separate conversations.
 
-**Set your principles upfront**
+**Describe symptoms, not solutions** — Say "the view count isn't incrementing" not "change the API to use the SDK." Let Claude diagnose the cause and find the fix.
 
-I defined three rules from the start: design first → approve before coding / ask when unsure / every change gets a Git commit. Claude remembers and follows these even across separate conversations.
+**Give feedback immediately** — I had the avatar rebuilt five times. Claude doesn't get tired. Instant feedback is the most efficient workflow.
 
-**Describe symptoms, not solutions**
-
-Say "the view count isn't incrementing" not "change the API to use the SDK." Let Claude diagnose the cause and find the fix.
-
-**Give feedback immediately**
-
-I had the avatar rebuilt five times. Claude doesn't get tired. Instant feedback is the most efficient workflow.
-
-**Tell Claude your deployment environment early**
-
-Saying "this will run on Vercel" upfront means Claude writes environment-appropriate code from the start. It prevents a whole class of bugs that only show up in production.
+**Tell Claude your deployment environment early** — Saying "this will run on Vercel" upfront means Claude writes environment-appropriate code from the start. It prevents a whole class of bugs that only show up in production.
 
 ## Conclusion
 
 You don't need to know how to code. You just need to know **what you want**.
-
 The people who ask better questions get better results.
 
 This blog is still evolving — with Claude.
