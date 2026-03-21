@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import Comments from "@/components/Comments";
 import TagBadge from "@/components/TagBadge";
+import ViewTracker from "@/components/ViewTracker";
 import { getAllPostsMeta, getPostBySlug } from "@/lib/posts";
 
 interface Props {
@@ -28,6 +29,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <article className="py-10">
+      <ViewTracker slug={slug} />
       <header className="mb-12">
         <time
           className="text-xs font-semibold tracking-widest uppercase"
