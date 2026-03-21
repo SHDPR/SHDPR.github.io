@@ -47,14 +47,30 @@ export default async function PopularPostsWidget() {
             <li key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="block text-sm font-medium transition-colors duration-200 hover:text-[var(--accent-1)]"
+                className="flex items-center justify-between gap-2 text-sm font-medium transition-colors duration-200 hover:text-[var(--accent-1)]"
                 style={{ color: "var(--text-primary)" }}
               >
-                {post.title}
+                <span>{post.title}</span>
+                <span
+                  className="flex items-center gap-1 text-xs shrink-0"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  {views[post.slug] ?? 0}
+                </span>
               </Link>
-              <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-                {views[post.slug] ?? 0}회
-              </span>
             </li>
           ))}
         </ul>
