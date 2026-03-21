@@ -2,14 +2,14 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --bg: #1a1127;
-  --surface: #231a30;
-  --border: #3d2f52;
-  --accent-1: #c084fc;
-  --accent-2: #f472b6;
-  --text-primary: #f1e6ff;
-  --text-muted: #9d8caa;
-  --gradient: linear-gradient(90deg, #c084fc, #f472b6);
+  --bg: #1c1410;
+  --surface: #2a1f17;
+  --border: #3d2c1e;
+  --accent-1: #fb923c;
+  --accent-2: #fbbf24;
+  --text-primary: #f5e6d3;
+  --text-muted: #c4a882;
+  --gradient: linear-gradient(90deg, #fb923c, #fbbf24);
 }
 
 @theme inline {
