@@ -28,14 +28,10 @@ export default function Home() {
         />
       </svg>
       {/* Hero */}
-      <section className="py-16">
+      <section className="pt-6 pb-16">
         <h1 className="text-5xl font-bold mb-6 gradient-text leading-tight">
           Counting Sand Grains
         </h1>
-        <p className="text-lg leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
-          I write about things I find interesting — tech, travel, career, and everyday life. No
-          fixed schedule, just honest words when I have something worth saying.
-        </p>
       </section>
 
       <hr style={{ borderColor: "var(--border)" }} />
