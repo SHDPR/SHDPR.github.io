@@ -111,10 +111,10 @@ body {
 
 /* Post title + body font (Playfair Display) */
 .post-title {
-  font-family: var(--font-playfair), var(--font-korean), serif;
+  font-family: var(--font-playfair), var(--font-korean), serif !important;
 }
 .prose {
-  font-family: var(--font-playfair), var(--font-korean), serif;
+  font-family: var(--font-playfair), var(--font-korean), serif !important;
 }
 
 /* Prose overrides */
