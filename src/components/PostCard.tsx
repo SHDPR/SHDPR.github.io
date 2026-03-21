@@ -10,30 +10,30 @@ interface PostCardProps {
 
 export default function PostCard({ post }: PostCardProps) {
   return (
-    <article className="post-card rounded-xl p-5">
-      <time className="text-xs font-medium" style={{ color: "var(--text-muted)" }}>
-        {post.date}
-      </time>
-      <h2 className="mt-2 text-lg font-bold" style={{ color: "var(--text-primary)" }}>
-        <Link
-          href={`/blog/${post.slug}`}
-          className="transition-colors duration-200 hover:text-[var(--accent-1)]"
+    <Link href={`/blog/${post.slug}`} className="block group">
+      <article className="post-card rounded-xl p-5">
+        <time className="text-xs font-medium" style={{ color: "var(--text-muted)" }}>
+          {post.date}
+        </time>
+        <h2
+          className="mt-2 text-lg font-bold transition-colors duration-200 group-hover:text-[var(--accent-1)]"
+          style={{ color: "var(--text-primary)" }}
         >
           {post.title}
-        </Link>
-      </h2>
-      {post.description && (
-        <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-          {post.description}
-        </p>
-      )}
-      {post.tags.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {post.tags.map((tag) => (
-            <TagBadge key={tag} tag={tag} />
-          ))}
-        </div>
-      )}
-    </article>
+        </h2>
+        {post.description && (
+          <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            {post.description}
+          </p>
+        )}
+        {post.tags.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {post.tags.map((tag) => (
+              <TagBadge key={tag} tag={tag} />
+            ))}
+          </div>
+        )}
+      </article>
+    </Link>
   );
 }
