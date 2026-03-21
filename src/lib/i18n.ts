@@ -52,9 +52,18 @@ export const translations = {
 export type Lang = keyof typeof translations;
 
 export async function getLang(): Promise<Lang> {
-  const { cookies } = await import("next/headers");
-  const lang = (await cookies()).get("lang")?.value;
-  return lang === "en" ? "en" : "ko";
+  const { cookies, headers } = await import("next/headers");
+
+  // 1. Explicit user preference (cookie) always wins
+  const cookieLang = (await cookies()).get("lang")?.value;
+  if (cookieLang === "en" || cookieLang === "ko") return cookieLang;
+
+  // 2. Geo-detect via Vercel's x-vercel-ip-country header
+  const country = (await headers()).get("x-vercel-ip-country");
+  if (country && country !== "KR") return "en";
+
+  // 3. Korea or undetectable → Korean
+  return "ko";
 }
 
 export function t(lang: Lang) {

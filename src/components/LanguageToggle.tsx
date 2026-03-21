@@ -18,7 +18,7 @@ export default function LanguageToggle({ lang }: { lang: Lang }) {
       onClick={toggle}
       aria-label={lang === "ko" ? "언어 변경" : "Change language"}
       title={lang === "ko" ? "Switch to English" : "한국어로 변경"}
-      className="flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 text-xs font-bold"
+      className="flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 text-lg"
       style={{
         backgroundColor: "var(--surface)",
         border: "1px solid var(--border)",
@@ -33,7 +33,7 @@ export default function LanguageToggle({ lang }: { lang: Lang }) {
         (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border)";
       }}
     >
-      {lang === "ko" ? "EN" : "KO"}
+      {lang === "ko" ? "🇺🇸" : "🇰🇷"}
     </button>
   );
 }
