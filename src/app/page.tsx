@@ -29,13 +29,9 @@ export default function Home() {
       </svg>
       {/* Hero */}
       <section className="py-16">
-        <p
-          className="text-sm font-semibold tracking-widest uppercase mb-4"
-          style={{ color: "var(--text-muted)" }}
-        >
-          Welcome to my corner of the internet
-        </p>
-        <h1 className="text-5xl font-bold mb-6 gradient-text leading-tight">SHDPR</h1>
+        <h1 className="text-5xl font-bold mb-6 gradient-text leading-tight">
+          Counting Sand Grains
+        </h1>
         <p className="text-lg leading-relaxed max-w-xl" style={{ color: "var(--text-muted)" }}>
           I write about things I find interesting — tech, travel, career, and everyday life. No
           fixed schedule, just honest words when I have something worth saying.
