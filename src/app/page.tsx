@@ -28,10 +28,8 @@ export default function Home() {
         />
       </svg>
       {/* Hero */}
-      <section className="pt-6 pb-16">
-        <h1 className="text-5xl font-bold mb-6 gradient-text leading-tight">
-          Counting Sand Grains
-        </h1>
+      <section className="py-8">
+        <h1 className="text-5xl font-bold gradient-text leading-tight">Counting Sand Grains</h1>
       </section>
 
       <hr style={{ borderColor: "var(--border)" }} />
