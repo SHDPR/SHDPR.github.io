@@ -1,25 +1,26 @@
-import { getPostsByTag, getAllTags } from '@/lib/posts'
-import PostCard from '@/components/PostCard'
-import { notFound } from 'next/navigation'
+import { notFound } from "next/navigation";
+
+import PostCard from "@/components/PostCard";
+import { getPostsByTag, getAllTags } from "@/lib/posts";
 
 interface Props {
-  params: Promise<{ tag: string }>
+  params: Promise<{ tag: string }>;
 }
 
 export async function generateStaticParams() {
-  return getAllTags().map((tag) => ({ tag }))
+  return getAllTags().map((tag) => ({ tag }));
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { tag } = await params
-  return { title: `#${tag} — SHDPR` }
+  const { tag } = await params;
+  return { title: `#${tag} — SHDPR` };
 }
 
 export default async function TagPage({ params }: Props) {
-  const { tag } = await params
-  const posts = getPostsByTag(tag)
+  const { tag } = await params;
+  const posts = getPostsByTag(tag);
 
-  if (posts.length === 0) notFound()
+  if (posts.length === 0) notFound();
 
   return (
     <div>
@@ -30,5 +31,5 @@ export default async function TagPage({ params }: Props) {
         <PostCard key={post.slug} post={post} />
       ))}
     </div>
-  )
+  );
 }

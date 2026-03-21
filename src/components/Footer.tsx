@@ -5,5 +5,5 @@ export default function Footer() {
         © {new Date().getFullYear()} SHDPR. All rights reserved.
       </div>
     </footer>
-  )
+  );
 }

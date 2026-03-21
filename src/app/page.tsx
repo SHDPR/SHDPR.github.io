@@ -1,9 +1,10 @@
-import { getAllPostsMeta } from '@/lib/posts'
-import PostCard from '@/components/PostCard'
-import Link from 'next/link'
+import Link from "next/link";
+
+import PostCard from "@/components/PostCard";
+import { getAllPostsMeta } from "@/lib/posts";
 
 export default function Home() {
-  const posts = getAllPostsMeta().slice(0, 5)
+  const posts = getAllPostsMeta().slice(0, 5);
 
   return (
     <div>
@@ -24,5 +25,5 @@ export default function Home() {
         )}
       </section>
     </div>
-  )
+  );
 }

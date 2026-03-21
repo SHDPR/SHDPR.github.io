@@ -1,29 +1,30 @@
-import { getPostBySlug, getAllPostsMeta } from '@/lib/posts'
-import TagBadge from '@/components/TagBadge'
-import { notFound } from 'next/navigation'
-import Comments from '@/components/Comments'
+import { notFound } from "next/navigation";
+
+import Comments from "@/components/Comments";
+import TagBadge from "@/components/TagBadge";
+import { getPostBySlug, getAllPostsMeta } from "@/lib/posts";
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPostsMeta()
-  return posts.map((post) => ({ slug: post.slug }))
+  const posts = getAllPostsMeta();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params
-  const post = await getPostBySlug(slug).catch(() => null)
-  if (!post) return {}
-  return { title: `${post.title} — SHDPR` }
+  const { slug } = await params;
+  const post = await getPostBySlug(slug).catch(() => null);
+  if (!post) return {};
+  return { title: `${post.title} — SHDPR` };
 }
 
 export default async function PostPage({ params }: Props) {
-  const { slug } = await params
-  const post = await getPostBySlug(slug).catch(() => null)
+  const { slug } = await params;
+  const post = await getPostBySlug(slug).catch(() => null);
 
-  if (!post) notFound()
+  if (!post) notFound();
 
   return (
     <article>
@@ -48,5 +49,5 @@ export default async function PostPage({ params }: Props) {
         <Comments />
       </div>
     </article>
-  )
+  );
 }

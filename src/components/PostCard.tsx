@@ -1,9 +1,11 @@
-import Link from 'next/link'
-import TagBadge from './TagBadge'
-import { PostMeta } from '@/lib/posts'
+import Link from "next/link";
+
+import { PostMeta } from "@/lib/posts";
+
+import TagBadge from "./TagBadge";
 
 interface PostCardProps {
-  post: PostMeta
+  post: PostMeta;
 }
 
 export default function PostCard({ post }: PostCardProps) {
@@ -15,9 +17,7 @@ export default function PostCard({ post }: PostCardProps) {
           {post.title}
         </Link>
       </h2>
-      {post.description && (
-        <p className="mt-1 text-sm text-gray-500">{post.description}</p>
-      )}
+      {post.description && <p className="mt-1 text-sm text-gray-500">{post.description}</p>}
       {post.tags.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-1">
           {post.tags.map((tag) => (
@@ -26,5 +26,5 @@ export default function PostCard({ post }: PostCardProps) {
         </div>
       )}
     </article>
-  )
+  );
 }

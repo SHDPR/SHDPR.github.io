@@ -1,10 +1,11 @@
-import { getAllTags, getPostsByTag } from '@/lib/posts'
-import Link from 'next/link'
+import Link from "next/link";
 
-export const metadata = { title: 'Tags — SHDPR' }
+import { getAllTags, getPostsByTag } from "@/lib/posts";
+
+export const metadata = { title: "Tags — SHDPR" };
 
 export default function TagsPage() {
-  const tags = getAllTags()
+  const tags = getAllTags();
 
   return (
     <div>
@@ -14,7 +15,7 @@ export default function TagsPage() {
       ) : (
         <div className="flex flex-wrap gap-3">
           {tags.map((tag) => {
-            const count = getPostsByTag(tag).length
+            const count = getPostsByTag(tag).length;
             return (
               <Link
                 key={tag}
@@ -24,10 +25,10 @@ export default function TagsPage() {
                 {tag}
                 <span className="ml-1.5 text-gray-400 text-xs">{count}</span>
               </Link>
-            )
+            );
           })}
         </div>
       )}
     </div>
-  )
+  );
 }

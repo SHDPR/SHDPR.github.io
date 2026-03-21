@@ -1,7 +1,7 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 interface TagBadgeProps {
-  tag: string
+  tag: string;
 }
 
 export default function TagBadge({ tag }: TagBadgeProps) {
@@ -12,5 +12,5 @@ export default function TagBadge({ tag }: TagBadgeProps) {
     >
       {tag}
     </Link>
-  )
+  );
 }

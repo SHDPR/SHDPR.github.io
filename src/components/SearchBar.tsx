@@ -1,30 +1,33 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Fuse from 'fuse.js'
-import { PostMeta } from '@/lib/posts'
-import PostCard from './PostCard'
+import Fuse from "fuse.js";
+import { useMemo, useState } from "react";
+
+
+import { PostMeta } from "@/lib/posts";
+
+import PostCard from "./PostCard";
 
 interface SearchBarProps {
-  posts: PostMeta[]
+  posts: PostMeta[];
 }
 
 export default function SearchBar({ posts }: SearchBarProps) {
-  const [query, setQuery] = useState('')
-  const [results, setResults] = useState<PostMeta[]>(posts)
+  const [query, setQuery] = useState("");
 
-  const fuse = new Fuse(posts, {
-    keys: ['title', 'description', 'tags'],
-    threshold: 0.4,
-  })
+  const fuse = useMemo(
+    () =>
+      new Fuse(posts, {
+        keys: ["title", "description", "tags"],
+        threshold: 0.4,
+      }),
+    [posts],
+  );
 
-  useEffect(() => {
-    if (query.trim() === '') {
-      setResults(posts)
-    } else {
-      setResults(fuse.search(query).map((r) => r.item))
-    }
-  }, [query])
+  const results = useMemo(() => {
+    if (query.trim() === "") return posts;
+    return fuse.search(query).map((r) => r.item);
+  }, [query, fuse, posts]);
 
   return (
     <div>
@@ -43,5 +46,5 @@ export default function SearchBar({ posts }: SearchBarProps) {
         )}
       </div>
     </div>
-  )
+  );
 }
