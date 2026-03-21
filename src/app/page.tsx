@@ -42,7 +42,7 @@ export default function Home() {
       <hr style={{ borderColor: "var(--border)" }} />
 
       {/* Recent posts */}
-      <section className="py-12">
+      <section className="pt-6 pb-12">
         <div className="mb-8">
           <h2 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
             최근 포스트
