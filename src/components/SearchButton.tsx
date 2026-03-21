@@ -17,24 +17,24 @@ export default function SearchButton({ posts }: SearchButtonProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const fuse = new Fuse(posts, { keys: ["title", "description", "tags"], threshold: 0.4 });
-  const results = query.trim() === "" ? posts : fuse.search(query).map((r) => r.item);
+  const results = query.trim() === "" ? [] : fuse.search(query).map((r) => r.item);
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
   }, [open]);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, []);
-
   function close() {
     setOpen(false);
     setQuery("");
   }
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <>
@@ -73,69 +73,76 @@ export default function SearchButton({ posts }: SearchButtonProps) {
 
       {open && (
         <div
-          onClick={close}
           style={{
             position: "fixed",
             inset: 0,
             zIndex: 200,
-            backgroundColor: "rgba(0,0,0,0.55)",
-            backdropFilter: "blur(4px)",
+            backgroundColor: "var(--bg)",
             display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            paddingTop: "80px",
-            paddingLeft: "16px",
-            paddingRight: "16px",
+            flexDirection: "column",
           }}
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              width: "100%",
-              maxWidth: "640px",
-              backgroundColor: "var(--bg)",
-              border: "1px solid var(--border)",
-              borderRadius: "16px",
-              overflow: "hidden",
-              maxHeight: "70vh",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            {/* Search input */}
-            <div style={{ padding: "16px", borderBottom: "1px solid var(--border)" }}>
+          {/* Top bar: input + close */}
+          <div className="max-w-3xl mx-auto w-full" style={{ padding: "24px 24px 0" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <input
                 ref={inputRef}
                 type="text"
                 placeholder="Search posts..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="search-input w-full px-4 py-3 rounded-xl text-sm"
+                className="search-input flex-1 px-4 py-3 rounded-xl text-sm"
               />
+              <button
+                onClick={close}
+                aria-label="Close search"
+                className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200"
+                style={{
+                  backgroundColor: "var(--surface)",
+                  border: "1px solid var(--border)",
+                  color: "var(--text-muted)",
+                  flexShrink: 0,
+                }}
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
             </div>
+          </div>
 
-            {/* Results */}
-            <div
-              style={{
-                overflowY: "auto",
-                padding: "16px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-              }}
-            >
-              {results.length === 0 ? (
-                <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                  No posts found.
-                </p>
-              ) : (
-                results.map((post) => (
+          {/* Results */}
+          <div
+            className="max-w-3xl mx-auto w-full"
+            style={{ flex: 1, overflowY: "auto", padding: "24px" }}
+          >
+            {query.trim() === "" ? (
+              <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+                Start typing to search posts...
+              </p>
+            ) : results.length === 0 ? (
+              <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+                No posts found for &ldquo;{query}&rdquo;.
+              </p>
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                {results.map((post) => (
                   <div key={post.slug} onClick={close}>
                     <PostCard post={post} />
                   </div>
-                ))
-              )}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

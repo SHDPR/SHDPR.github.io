@@ -1,4 +1,4 @@
-import SearchBar from "@/components/SearchBar";
+import PostCard from "@/components/PostCard";
 import { getAllPostsMeta } from "@/lib/posts";
 
 export const metadata = { title: "Blog — SHDPR" };
@@ -12,7 +12,11 @@ export default function BlogPage() {
       <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
         {posts.length} {posts.length === 1 ? "post" : "posts"} total
       </p>
-      <SearchBar posts={posts} />
+      <div className="flex flex-col gap-4">
+        {posts.map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
+      </div>
     </div>
   );
 }
