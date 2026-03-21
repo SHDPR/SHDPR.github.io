@@ -2,7 +2,7 @@ export const translations = {
   ko: {
     nav_blog: "블로그",
     nav_tags: "태그",
-    about_role: "SSD 펌웨어 엔지니어",
+    about_role: "SSD 펌웨어 엔지니어입니다",
     category_title: "카테고리",
     category_empty: "카테고리가 없습니다.",
     popular_title: "인기 포스트",
