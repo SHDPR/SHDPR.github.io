@@ -15,16 +15,16 @@ export default function Home() {
           top: 0,
           left: 0,
           width: "100%",
-          height: "420px",
+          height: "560px",
           zIndex: -1,
           pointerEvents: "none",
         }}
-        viewBox="0 0 1440 420"
+        viewBox="0 0 1440 560"
         preserveAspectRatio="xMidYMax slice"
       >
         <path
           className="bg-wave"
-          d="M0,0 L1440,0 L1440,320 C1200,385 900,355 600,340 C300,325 140,372 0,358 Z"
+          d="M0,0 L1440,0 L1440,430 C1200,512 900,475 600,455 C300,435 140,496 0,478 Z"
         />
       </svg>
       {/* Hero */}
