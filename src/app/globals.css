@@ -98,6 +98,17 @@ body {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-1) 20%, transparent);
 }
 
+/* GitHub header button */
+.github-btn {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.github-btn:hover {
+  color: var(--accent-1);
+  border-color: var(--accent-1);
+}
+
 /* Prose overrides */
 .prose {
   --tw-prose-body: var(--text-primary);
