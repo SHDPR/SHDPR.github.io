@@ -16,15 +16,21 @@ export default function PostCard({ post }: PostCardProps) {
           {post.date}
         </time>
         <h2
-          className="post-title mt-2 text-lg font-bold transition-colors duration-200 group-hover:text-[var(--accent-1)]"
-          style={{ color: "var(--text-primary)" }}
+          className="mt-2 text-lg font-bold transition-colors duration-200 group-hover:text-[var(--accent-1)]"
+          style={{
+            color: "var(--text-primary)",
+            fontFamily: "var(--font-playfair), var(--font-korean), serif",
+          }}
         >
           {post.title}
         </h2>
         {post.description && (
           <p
-            className="post-title mt-1.5 text-sm leading-relaxed"
-            style={{ color: "var(--text-muted)" }}
+            className="mt-1.5 text-sm leading-relaxed"
+            style={{
+              color: "var(--text-muted)",
+              fontFamily: "var(--font-playfair), var(--font-korean), serif",
+            }}
           >
             {post.description}
           </p>
