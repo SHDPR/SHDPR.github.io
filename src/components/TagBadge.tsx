@@ -8,11 +8,7 @@ export default function TagBadge({ tag }: TagBadgeProps) {
   return (
     <Link
       href={`/tags/${tag}`}
-      className="inline-block text-xs px-2.5 py-1 rounded-full font-medium transition-opacity duration-200 hover:opacity-80"
-      style={{
-        background: "#FF4080",
-        color: "#fff",
-      }}
+      className="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-md transition-all duration-200 tag-pill"
     >
       {tag}
     </Link>
