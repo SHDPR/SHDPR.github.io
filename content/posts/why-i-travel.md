@@ -1,7 +1,7 @@
 ---
 title: "Why I Travel"
 date: "2026-03-15"
-tags: ["travel", "personal"]
+tags: ["TRAVEL", "DIARY"]
 description: "Travel isn't about the destination. It's about the reset."
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Hello, World"
 date: "2026-03-21"
-tags: ["personal"]
+tags: ["DIARY"]
 description: "The first post. An introduction to this blog."
 ---
 

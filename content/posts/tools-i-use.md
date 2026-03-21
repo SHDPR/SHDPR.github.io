@@ -1,7 +1,7 @@
 ---
 title: "Tools I Use"
 date: "2026-03-10"
-tags: ["tech"]
+tags: ["TECH"]
 description: "A running list of software and hardware I actually rely on."
 ---
 
