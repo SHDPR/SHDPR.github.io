@@ -5,8 +5,8 @@ import { getAllPostsMeta } from "@/lib/posts";
 export const metadata = { title: "Blog — SHDPR" };
 
 export default async function BlogPage() {
-  const posts = getAllPostsMeta(lang);
   const lang = await getLang();
+  const posts = getAllPostsMeta(lang);
   const tr = t(lang);
 
   return (

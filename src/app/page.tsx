@@ -3,8 +3,8 @@ import { getLang, t } from "@/lib/i18n";
 import { getAllPostsMeta } from "@/lib/posts";
 
 export default async function Home() {
-  const posts = getAllPostsMeta(lang).slice(0, 5);
   const lang = await getLang();
+  const posts = getAllPostsMeta(lang).slice(0, 5);
   const tr = t(lang);
 
   return (
