@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Geist, Geist_Mono, Syne } from "next/font/google";
+import { DM_Serif_Display, Do_Hyeon, Geist, Geist_Mono, Syne } from "next/font/google";
 
 import "./globals.css";
 import Footer from "@/components/Footer";
@@ -14,6 +14,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const doHyeon = Do_Hyeon({
+  variable: "--font-korean",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const syne = Syne({
@@ -53,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${dmSerifDisplay.variable} ${syne.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${dmSerifDisplay.variable} ${syne.variable} ${doHyeon.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
