@@ -1,8 +1,12 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 py-6 mt-16">
-      <div className="max-w-3xl mx-auto px-4 text-sm text-gray-400 text-center">
-        © {new Date().getFullYear()} SHDPR. All rights reserved.
+    <footer className="mt-16 py-8" style={{ borderTop: "1px solid var(--border)" }}>
+      <div
+        className="max-w-3xl mx-auto px-6 flex items-center justify-between text-sm"
+        style={{ color: "var(--text-muted)" }}
+      >
+        <span className="gradient-text font-bold">SHDPR</span>
+        <span>© {new Date().getFullYear()} · All rights reserved.</span>
       </div>
     </footer>
   );

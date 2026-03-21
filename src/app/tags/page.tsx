@@ -8,10 +8,15 @@ export default function TagsPage() {
   const tags = getAllTags();
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">Tags</h1>
+    <div className="py-10">
+      <h1 className="text-3xl font-bold mb-2 gradient-text">Tags</h1>
+      <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
+        Browse posts by topic
+      </p>
       {tags.length === 0 ? (
-        <p className="text-gray-400 text-sm">No tags yet.</p>
+        <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+          No tags yet.
+        </p>
       ) : (
         <div className="flex flex-wrap gap-3">
           {tags.map((tag) => {
@@ -20,10 +25,12 @@ export default function TagsPage() {
               <Link
                 key={tag}
                 href={`/tags/${tag}`}
-                className="px-3 py-1.5 rounded-full border border-gray-200 text-sm hover:bg-gray-50 transition-colors"
+                className="tag-pill px-4 py-2 rounded-full text-sm font-medium"
               >
                 {tag}
-                <span className="ml-1.5 text-gray-400 text-xs">{count}</span>
+                <span className="ml-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                  {count}
+                </span>
               </Link>
             );
           })}

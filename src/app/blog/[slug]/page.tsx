@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import Comments from "@/components/Comments";
 import TagBadge from "@/components/TagBadge";
-import { getPostBySlug, getAllPostsMeta } from "@/lib/posts";
+import { getAllPostsMeta, getPostBySlug } from "@/lib/posts";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -27,25 +27,36 @@ export default async function PostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <article>
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-        <time className="text-sm text-gray-400">{post.date}</time>
+    <article className="py-10">
+      <header className="mb-12">
+        <time
+          className="text-xs font-semibold tracking-widest uppercase"
+          style={{ color: "var(--text-muted)" }}
+        >
+          {post.date}
+        </time>
+        <h1 className="text-4xl font-bold mt-3 mb-4 gradient-text leading-tight">{post.title}</h1>
+        {post.description && (
+          <p className="text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            {post.description}
+          </p>
+        )}
         {post.tags.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1">
+          <div className="mt-5 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
               <TagBadge key={tag} tag={tag} />
             ))}
           </div>
         )}
+        <hr className="mt-8" style={{ borderColor: "var(--border)" }} />
       </header>
 
-      <div
-        className="prose prose-gray max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-      />
+      <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
-      <div className="mt-16">
+      <div className="mt-16 pt-8" style={{ borderTop: "1px solid var(--border)" }}>
+        <h2 className="text-lg font-bold mb-6" style={{ color: "var(--text-primary)" }}>
+          Comments
+        </h2>
         <Comments />
       </div>
     </article>

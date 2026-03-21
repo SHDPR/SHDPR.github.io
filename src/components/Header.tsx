@@ -2,19 +2,29 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="border-b border-gray-200 py-4">
-      <div className="max-w-3xl mx-auto px-4 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-tight hover:opacity-70 transition-opacity"
-        >
+    <header
+      className="sticky top-0 z-50 border-b"
+      style={{
+        backgroundColor: "color-mix(in srgb, var(--bg) 80%, transparent)",
+        borderColor: "var(--border)",
+        backdropFilter: "blur(12px)",
+      }}
+    >
+      <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link href="/" className="text-xl font-bold tracking-tight gradient-text">
           SHDPR
         </Link>
-        <nav className="flex gap-6 text-sm text-gray-600">
-          <Link href="/blog" className="hover:text-black transition-colors">
+        <nav className="flex gap-8 text-sm" style={{ color: "var(--text-muted)" }}>
+          <Link
+            href="/blog"
+            className="transition-colors duration-200 hover:text-[var(--accent-1)]"
+          >
             Blog
           </Link>
-          <Link href="/tags" className="hover:text-black transition-colors">
+          <Link
+            href="/tags"
+            className="transition-colors duration-200 hover:text-[var(--accent-1)]"
+          >
             Tags
           </Link>
         </nav>
