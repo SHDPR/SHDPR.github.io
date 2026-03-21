@@ -36,7 +36,10 @@ export default async function PopularPostsWidget({ lang }: { lang: Lang }) {
       className="rounded-xl p-5"
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
-      <h3 className="text-sm font-bold mb-3" style={{ color: "var(--text-primary)" }}>
+      <h3
+        className="text-xs font-bold mb-3 uppercase tracking-widest"
+        style={{ color: "var(--text-primary)" }}
+      >
         {tr.popular_title}
       </h3>
       {sorted.length === 0 ? (

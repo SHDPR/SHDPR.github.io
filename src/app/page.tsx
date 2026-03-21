@@ -47,7 +47,10 @@ export default async function Home() {
       {/* Recent posts */}
       <section className="pt-6 pb-12">
         <div className="mb-8">
-          <h2 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
+          <h2
+            className="text-xs font-bold uppercase tracking-widest"
+            style={{ color: "var(--text-primary)" }}
+          >
             {tr.recent_title}
           </h2>
         </div>

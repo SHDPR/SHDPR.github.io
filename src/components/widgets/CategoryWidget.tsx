@@ -12,7 +12,10 @@ export default function CategoryWidget({ lang }: { lang: Lang }) {
       className="rounded-xl p-5"
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
-      <h3 className="text-sm font-bold mb-3" style={{ color: "var(--text-primary)" }}>
+      <h3
+        className="text-xs font-bold mb-3 uppercase tracking-widest"
+        style={{ color: "var(--text-primary)" }}
+      >
         {tr.category_title}
       </h3>
       {tags.length === 0 ? (
