@@ -5,7 +5,6 @@ export default function Footer() {
         className="max-w-3xl mx-auto px-6 flex items-center justify-between text-sm"
         style={{ color: "var(--text-muted)" }}
       >
-        <span className="gradient-text font-bold">SHDPR</span>
         <span>© {new Date().getFullYear()} · All rights reserved.</span>
       </div>
     </footer>

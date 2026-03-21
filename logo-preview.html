@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SHDPR Logo — Concept 11 Variations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@1,400;1,700;1,900&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600&family=Geist:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; font-family: sans-serif; padding: 48px; color: #fff; }
+
+    h1 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .subtitle { font-size: 12px; color: #555; margin-bottom: 48px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 44px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      min-height: 200px;
+    }
+
+    .num-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #444;
+      text-align: center;
+    }
+
+    /* ── Shared font styles ── */
+    .serif-it {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+    }
+    .play-it {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+    .corm-it {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+
+    /* 1. Accent rectangle, white text */
+    .v1-bg {
+      background: #FF1E63;
+      padding: 10px 22px;
+      border-radius: 4px;
+    }
+    .v1-text { font-size: 34px; font-weight: 400; color: #fff; }
+
+    /* 2. Dark surface rectangle, pink text */
+    .v2-bg {
+      background: #252525;
+      padding: 10px 22px;
+      border-radius: 4px;
+      border: 1px solid #333;
+    }
+    .v2-text { font-size: 34px; font-weight: 400; color: #FF1E63; }
+
+    /* 3. Pill / very rounded, accent bg */
+    .v3-bg {
+      background: #FF1E63;
+      padding: 10px 28px;
+      border-radius: 999px;
+    }
+    .v3-text { font-size: 32px; font-weight: 400; color: #fff; }
+
+    /* 4. Outlined pill — just border, no fill */
+    .v4-bg {
+      border: 2px solid #FF1E63;
+      padding: 10px 28px;
+      border-radius: 999px;
+    }
+    .v4-text { font-size: 32px; font-weight: 400; color: #FF1E63; }
+
+    /* 5. Parallelogram / angled shape */
+    .v5-bg {
+      background: #FF1E63;
+      padding: 10px 28px;
+      border-radius: 4px;
+      transform: skewX(-8deg);
+    }
+    .v5-text {
+      font-size: 34px; font-weight: 400; color: #fff;
+      transform: skewX(8deg);
+      display: block;
+    }
+
+    /* 6. Circle badge */
+    .v6-bg {
+      background: #FF1E63;
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .v6-text { font-size: 28px; font-weight: 400; color: #fff; }
+
+    /* 7. Squircle (rounded square) */
+    .v7-bg {
+      background: #FF1E63;
+      width: 110px; height: 110px;
+      border-radius: 28px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .v7-text { font-size: 28px; font-weight: 400; color: #fff; }
+
+    /* 8. Gradient fill rectangle */
+    .v8-bg {
+      background: linear-gradient(135deg, #FF1E63, #ff6b96);
+      padding: 10px 22px;
+      border-radius: 4px;
+    }
+    .v8-text { font-size: 34px; font-weight: 400; color: #fff; }
+
+    /* 9. Split two-tone — half dark, half accent */
+    .v9-bg {
+      display: flex;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .v9-left {
+      background: #FF1E63;
+      padding: 10px 14px 10px 20px;
+    }
+    .v9-right {
+      background: #252525;
+      padding: 10px 20px 10px 14px;
+    }
+    .v9-text { font-size: 34px; font-weight: 400; }
+    .v9-text.light { color: #fff; }
+    .v9-text.dark  { color: #FF1E63; }
+
+    /* 10. Layered offset — shadow rect behind */
+    .v10-wrap { position: relative; }
+    .v10-shadow {
+      position: absolute;
+      top: 6px; left: 6px;
+      width: 100%; height: 100%;
+      background: #FF1E63;
+      border-radius: 4px;
+      opacity: 0.5;
+    }
+    .v10-bg {
+      position: relative;
+      background: #252525;
+      border: 1px solid #444;
+      padding: 10px 22px;
+      border-radius: 4px;
+    }
+    .v10-text { font-size: 34px; font-weight: 400; color: #f5f5f5; }
+
+    /* 11. Diamond / rotated square */
+    .v11-outer {
+      width: 120px; height: 120px;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .v11-diamond {
+      position: absolute;
+      width: 84px; height: 84px;
+      background: #FF1E63;
+      transform: rotate(45deg);
+      border-radius: 8px;
+    }
+    .v11-text {
+      position: relative;
+      font-size: 26px; font-weight: 400; color: #fff;
+      z-index: 1;
+    }
+
+    /* 12. Thin outlined rectangle, Cormorant (more elegant serif) */
+    .v12-bg {
+      border: 1.5px solid #FF1E63;
+      padding: 8px 20px;
+      border-radius: 2px;
+      position: relative;
+    }
+    .v12-text { font-size: 38px; font-weight: 300; color: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>Concept 11 — Serif Italic "shdpr" Variations</h1>
+  <p class="subtitle">Lowercase s · Italic serif · With background shape</p>
+
+  <div class="grid">
+
+    <!-- 1 -->
+    <div class="card">
+      <div class="v1-bg">
+        <span class="serif-it v1-text">shdpr</span>
+      </div>
+      <div class="num-label">1 · Sharp rect · accent fill</div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="v2-bg">
+        <span class="serif-it v2-text">shdpr</span>
+      </div>
+      <div class="num-label">2 · Sharp rect · dark fill · pink text</div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <div class="v3-bg">
+        <span class="serif-it v3-text">shdpr</span>
+      </div>
+      <div class="num-label">3 · Pill · accent fill</div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="v4-bg">
+        <span class="serif-it v4-text">shdpr</span>
+      </div>
+      <div class="num-label">4 · Pill · outlined only</div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <div class="v5-bg">
+        <span class="serif-it v5-text">shdpr</span>
+      </div>
+      <div class="num-label">5 · Parallelogram · slanted edge</div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <div class="v6-bg">
+        <span class="serif-it v6-text">shdpr</span>
+      </div>
+      <div class="num-label">6 · Circle badge</div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="v7-bg">
+        <span class="serif-it v7-text">shdpr</span>
+      </div>
+      <div class="num-label">7 · Squircle badge</div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <div class="v8-bg">
+        <span class="play-it v8-text">shdpr</span>
+      </div>
+      <div class="num-label">8 · Gradient fill · Playfair</div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <div class="v9-bg">
+        <div class="v9-left"><span class="serif-it v9-text light">s</span></div>
+        <div class="v9-right"><span class="serif-it v9-text dark">hdpr</span></div>
+      </div>
+      <div class="num-label">9 · Two-tone split · s / hdpr</div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <div class="v10-wrap">
+        <div class="v10-shadow"></div>
+        <div class="v10-bg">
+          <span class="serif-it v10-text">shdpr</span>
+        </div>
+      </div>
+      <div class="num-label">10 · Offset shadow rect</div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+      <div class="v11-outer">
+        <div class="v11-diamond"></div>
+        <span class="serif-it v11-text">shdpr</span>
+      </div>
+      <div class="num-label">11 · Diamond / rotated square</div>
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <div class="v12-bg">
+        <span class="corm-it v12-text">shdpr</span>
+      </div>
+      <div class="num-label">12 · Outlined rect · Cormorant · elegant</div>
+    </div>
+
+  </div>
+</body>
+</html>

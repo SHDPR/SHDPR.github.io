@@ -18,8 +18,37 @@ export default function Header() {
       }}
     >
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold tracking-tight gradient-text">
-          SHDPR
+        <Link href="/" style={{ position: "relative", display: "inline-block" }}>
+          {/* Shadow layer */}
+          <span
+            style={{
+              position: "absolute",
+              top: "4px",
+              left: "4px",
+              width: "100%",
+              height: "100%",
+              background: "#FF1E63",
+              borderRadius: "4px",
+              opacity: 0.5,
+            }}
+          />
+          {/* Main box */}
+          <span
+            style={{
+              position: "relative",
+              display: "block",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+              padding: "4px 12px",
+              borderRadius: "4px",
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              fontSize: "20px",
+              color: "var(--text-primary)",
+            }}
+          >
+            shdpr
+          </span>
         </Link>
         <div className="flex items-center gap-6">
           <nav className="flex gap-6 text-sm" style={{ color: "var(--text-muted)" }}>
