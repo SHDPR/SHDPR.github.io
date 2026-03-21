@@ -25,7 +25,7 @@ export default function CategoryWidget() {
               <Link
                 key={tag}
                 href={`/tags/${tag}`}
-                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded transition-all duration-200 tag-pill"
+                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-md transition-all duration-200 tag-pill"
               >
                 {tag}
                 <span
