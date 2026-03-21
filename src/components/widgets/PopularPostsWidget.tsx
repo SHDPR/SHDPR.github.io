@@ -1,6 +1,7 @@
 import { Redis } from "@upstash/redis";
 import Link from "next/link";
 
+import { Lang, t } from "@/lib/i18n";
 import { getAllPostsMeta } from "@/lib/posts";
 
 const redis = new Redis({
@@ -23,9 +24,10 @@ async function getViewCounts(slugs: string[]): Promise<Record<string, number>> {
   }
 }
 
-export default async function PopularPostsWidget() {
+export default async function PopularPostsWidget({ lang }: { lang: Lang }) {
   const posts = getAllPostsMeta();
   const views = await getViewCounts(posts.map((p) => p.slug));
+  const tr = t(lang);
 
   const sorted = [...posts].sort((a, b) => (views[b.slug] ?? 0) - (views[a.slug] ?? 0)).slice(0, 3);
 
@@ -35,11 +37,11 @@ export default async function PopularPostsWidget() {
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
       <h3 className="text-sm font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-        인기 포스트
+        {tr.popular_title}
       </h3>
       {sorted.length === 0 ? (
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-          포스트가 없습니다.
+          {tr.popular_empty}
         </p>
       ) : (
         <ul className="flex flex-col gap-3">

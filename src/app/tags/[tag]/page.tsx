@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import PostCard from "@/components/PostCard";
+import { getLang, t } from "@/lib/i18n";
 import { getPostsByTag, getAllTags } from "@/lib/posts";
 
 interface Props {
@@ -19,13 +20,15 @@ export async function generateMetadata({ params }: Props) {
 export default async function TagPage({ params }: Props) {
   const { tag } = await params;
   const posts = getPostsByTag(tag);
+  const lang = await getLang();
+  const tr = t(lang);
 
   if (posts.length === 0) notFound();
 
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">
-        <span style={{ color: "var(--text-muted)" }}>#{tag}</span> 태그 포스트
+        <span style={{ color: "var(--text-muted)" }}>{tr.tagPageHeading(tag)}</span>
       </h1>
       {posts.map((post) => (
         <PostCard key={post.slug} post={post} />

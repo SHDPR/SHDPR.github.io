@@ -3,18 +3,21 @@
 import Fuse from "fuse.js";
 import { useEffect, useRef, useState } from "react";
 
+import { Lang, t } from "@/lib/i18n";
 import { PostMeta } from "@/lib/posts";
 
 import PostCard from "./PostCard";
 
 interface SearchButtonProps {
   posts: PostMeta[];
+  lang: Lang;
 }
 
-export default function SearchButton({ posts }: SearchButtonProps) {
+export default function SearchButton({ posts, lang }: SearchButtonProps) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const tr = t(lang);
 
   const fuse = new Fuse(posts, { keys: ["title", "description", "tags"], threshold: 0.4 });
   const results = query.trim() === "" ? [] : fuse.search(query).map((r) => r.item);
@@ -40,7 +43,7 @@ export default function SearchButton({ posts }: SearchButtonProps) {
     <>
       <button
         onClick={() => setOpen(true)}
-        aria-label="포스트 검색"
+        aria-label={tr.search_aria}
         className="flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200"
         style={{
           backgroundColor: "var(--surface)",
@@ -88,14 +91,14 @@ export default function SearchButton({ posts }: SearchButtonProps) {
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="포스트 검색..."
+                placeholder={tr.search_placeholder}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="search-input flex-1 px-4 py-3 rounded-xl text-sm"
               />
               <button
                 onClick={close}
-                aria-label="검색 닫기"
+                aria-label={tr.search_close_aria}
                 className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200"
                 style={{
                   backgroundColor: "var(--surface)",
@@ -128,11 +131,11 @@ export default function SearchButton({ posts }: SearchButtonProps) {
           >
             {query.trim() === "" ? (
               <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                검색어를 입력하세요...
+                {tr.search_empty_prompt}
               </p>
             ) : results.length === 0 ? (
               <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                &ldquo;{query}&rdquo; 검색 결과가 없습니다.
+                {tr.searchNoResults(query)}
               </p>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>

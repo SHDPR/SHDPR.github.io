@@ -1,12 +1,15 @@
 import Link from "next/link";
 
+import { Lang, t } from "@/lib/i18n";
 import { getAllPostsMeta } from "@/lib/posts";
 
+import LanguageToggle from "./LanguageToggle";
 import SearchButton from "./SearchButton";
 import ThemeToggle from "./ThemeToggle";
 
-export default function Header() {
+export default function Header({ lang }: { lang: Lang }) {
   const posts = getAllPostsMeta();
+  const tr = t(lang);
 
   return (
     <header
@@ -56,17 +59,18 @@ export default function Header() {
               href="/blog"
               className="transition-colors duration-200 hover:text-[var(--accent-1)]"
             >
-              블로그
+              {tr.nav_blog}
             </Link>
             <Link
               href="/tags"
               className="transition-colors duration-200 hover:text-[var(--accent-1)]"
             >
-              태그
+              {tr.nav_tags}
             </Link>
           </nav>
           <div className="flex items-center gap-2">
-            <SearchButton posts={posts} />
+            <SearchButton posts={posts} lang={lang} />
+            <LanguageToggle lang={lang} />
             <ThemeToggle />
           </div>
         </div>

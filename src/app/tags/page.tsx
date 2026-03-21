@@ -1,21 +1,24 @@
 import Link from "next/link";
 
+import { getLang, t } from "@/lib/i18n";
 import { getAllTags, getPostsByTag } from "@/lib/posts";
 
 export const metadata = { title: "Tags — SHDPR" };
 
-export default function TagsPage() {
+export default async function TagsPage() {
   const tags = getAllTags();
+  const lang = await getLang();
+  const tr = t(lang);
 
   return (
     <div className="py-10">
-      <h1 className="text-3xl font-bold mb-2 gradient-text">태그</h1>
+      <h1 className="text-3xl font-bold mb-2 gradient-text">{tr.tags_heading}</h1>
       <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
-        태그별 포스트 보기
+        {tr.tags_subtitle}
       </p>
       {tags.length === 0 ? (
         <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-          태그가 없습니다.
+          {tr.tags_empty}
         </p>
       ) : (
         <div className="flex flex-wrap gap-3">

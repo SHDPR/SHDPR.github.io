@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Comments from "@/components/Comments";
 import TagBadge from "@/components/TagBadge";
 import ViewTracker from "@/components/ViewTracker";
+import { getLang, t } from "@/lib/i18n";
 import { getAllPostsMeta, getPostBySlug } from "@/lib/posts";
 
 interface Props {
@@ -24,6 +25,8 @@ export async function generateMetadata({ params }: Props) {
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   const post = await getPostBySlug(slug).catch(() => null);
+  const lang = await getLang();
+  const tr = t(lang);
 
   if (!post) notFound();
 
@@ -57,7 +60,7 @@ export default async function PostPage({ params }: Props) {
 
       <div className="mt-16 pt-8" style={{ borderTop: "1px solid var(--border)" }}>
         <h2 className="text-lg font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-          댓글
+          {tr.comments_heading}
         </h2>
         <Comments />
       </div>

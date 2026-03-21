@@ -1,8 +1,11 @@
 import PostCard from "@/components/PostCard";
+import { getLang, t } from "@/lib/i18n";
 import { getAllPostsMeta } from "@/lib/posts";
 
-export default function Home() {
+export default async function Home() {
   const posts = getAllPostsMeta().slice(0, 5);
+  const lang = await getLang();
+  const tr = t(lang);
 
   return (
     <div style={{ position: "relative" }}>
@@ -45,12 +48,12 @@ export default function Home() {
       <section className="pt-6 pb-12">
         <div className="mb-8">
           <h2 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
-            최근 포스트
+            {tr.recent_title}
           </h2>
         </div>
         {posts.length === 0 ? (
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            포스트가 없습니다.
+            {tr.recent_empty}
           </p>
         ) : (
           <div className="flex flex-col gap-4">

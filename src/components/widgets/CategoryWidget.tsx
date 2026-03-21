@@ -1,9 +1,11 @@
 import Link from "next/link";
 
+import { Lang, t } from "@/lib/i18n";
 import { getAllTags, getPostsByTag } from "@/lib/posts";
 
-export default function CategoryWidget() {
+export default function CategoryWidget({ lang }: { lang: Lang }) {
   const tags = getAllTags();
+  const tr = t(lang);
 
   return (
     <div
@@ -11,11 +13,11 @@ export default function CategoryWidget() {
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
       <h3 className="text-sm font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-        카테고리
+        {tr.category_title}
       </h3>
       {tags.length === 0 ? (
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-          카테고리가 없습니다.
+          {tr.category_empty}
         </p>
       ) : (
         <div className="flex flex-wrap gap-2">

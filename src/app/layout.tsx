@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
+import { getLang } from "@/lib/i18n";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,8 +37,26 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "SHDPR Blog",
-  description: "Personal blog by SHDPR",
+  title: {
+    default: "SHDPR Blog",
+    template: "%s — SHDPR",
+  },
+  description:
+    "기술, 여행, 커리어, 일상에 관한 SHDPR의 블로그 / Personal blog by SHDPR about tech, travel, career, and life.",
+  metadataBase: new URL("https://shdpr.github.io"),
+  openGraph: {
+    siteName: "SHDPR Blog",
+    type: "website",
+    locale: "ko_KR",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 // Runs before first paint — reads localStorage or system preference and sets
@@ -51,25 +70,27 @@ const themeInitScript = `
 })();
 `;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = await getLang();
+
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${geistSans.variable} ${geistMono.variable} ${dmSerifDisplay.variable} ${syne.variable} ${doHyeon.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col">
-        <Header />
+        <Header lang={lang} />
         <div className="flex-1 w-full max-w-5xl mx-auto px-4 py-10">
           <div className="flex flex-col lg:flex-row gap-10">
             <main className="flex-1 min-w-0">{children}</main>
-            <Sidebar />
+            <Sidebar lang={lang} />
           </div>
         </div>
         <Footer />
