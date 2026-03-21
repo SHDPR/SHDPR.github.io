@@ -28,7 +28,7 @@ export default function Home() {
         />
       </svg>
       {/* Hero */}
-      <section className="py-8">
+      <section className="pt-0 pb-10">
         <h1 className="text-5xl font-bold gradient-text leading-tight">Counting Sand Grains</h1>
       </section>
 
