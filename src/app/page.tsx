@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import PostCard from "@/components/PostCard";
 import { getAllPostsMeta } from "@/lib/posts";
 
@@ -48,17 +46,10 @@ export default function Home() {
 
       {/* Recent posts */}
       <section className="py-12">
-        <div className="flex items-center justify-between mb-8">
+        <div className="mb-8">
           <h2 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
             Recent Posts
           </h2>
-          <Link
-            href="/blog"
-            className="text-sm transition-colors duration-200 hover:text-[var(--accent-1)]"
-            style={{ color: "var(--text-muted)" }}
-          >
-            All posts →
-          </Link>
         </div>
         {posts.length === 0 ? (
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
