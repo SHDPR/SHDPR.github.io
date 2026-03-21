@@ -80,7 +80,10 @@ export default async function AboutWidget({ lang }: { lang: Lang }) {
             alt="avatar"
             className="w-24 h-24 rounded-full object-cover object-top"
           />
-          <p className="text-sm font-medium text-right" style={{ color: "var(--text-muted)" }}>
+          <p
+            className="post-title text-sm font-medium text-right"
+            style={{ color: "var(--text-muted)" }}
+          >
             {tr.about_role}
           </p>
         </div>

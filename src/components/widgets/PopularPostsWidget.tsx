@@ -52,7 +52,7 @@ export default async function PopularPostsWidget({ lang }: { lang: Lang }) {
             <li key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="flex items-center justify-between gap-2 text-sm font-medium transition-colors duration-200 hover:text-[var(--accent-1)]"
+                className="post-title flex items-center justify-between gap-2 text-sm font-medium transition-colors duration-200 hover:text-[var(--accent-1)]"
                 style={{ color: "var(--text-primary)" }}
               >
                 <span>{post.title}</span>
