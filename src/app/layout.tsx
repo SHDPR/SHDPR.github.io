@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   description:
     "기술, 여행, 커리어, 일상에 관한 SHDPR의 블로그 / Personal blog by SHDPR about tech, travel, career, and life.",
-  metadataBase: new URL("https://shdpr.github.io"),
+  metadataBase: new URL("https://shdpr-github-io.vercel.app"),
   openGraph: {
     siteName: "SHDPR Blog",
     type: "website",
