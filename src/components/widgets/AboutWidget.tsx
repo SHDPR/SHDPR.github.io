@@ -46,10 +46,6 @@ function Sparkline({ data }: { data: number[] }) {
           <stop offset="100%" stopColor="var(--accent-1)" stopOpacity="0" />
         </linearGradient>
       </defs>
-      {/* Y-axis */}
-      <line x1="0" y1="0" x2="0" y2={H} stroke="var(--border)" strokeWidth="1" />
-      {/* X-axis */}
-      <line x1="0" y1={H} x2={W} y2={H} stroke="var(--border)" strokeWidth="1" />
       <polygon points={area} fill="url(#sparkFill)" />
       <polyline
         points={polyline}
