@@ -29,7 +29,9 @@ export default async function PopularPostsWidget({ lang }: { lang: Lang }) {
   const views = await getViewCounts(posts.map((p) => p.slug));
   const tr = t(lang);
 
-  const sorted = [...posts].sort((a, b) => (views[b.slug] ?? 0) - (views[a.slug] ?? 0)).slice(0, 3);
+  const sorted = [...posts]
+    .sort((a, b) => (views[b.slug] ?? 0) - (views[a.slug] ?? 0))
+    .slice(0, 10);
 
   return (
     <div
