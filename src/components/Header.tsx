@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import ThemeToggle from "./ThemeToggle";
+
 export default function Header() {
   return (
     <header
@@ -14,20 +16,23 @@ export default function Header() {
         <Link href="/" className="text-xl font-bold tracking-tight gradient-text">
           SHDPR
         </Link>
-        <nav className="flex gap-8 text-sm" style={{ color: "var(--text-muted)" }}>
-          <Link
-            href="/blog"
-            className="transition-colors duration-200 hover:text-[var(--accent-1)]"
-          >
-            Blog
-          </Link>
-          <Link
-            href="/tags"
-            className="transition-colors duration-200 hover:text-[var(--accent-1)]"
-          >
-            Tags
-          </Link>
-        </nav>
+        <div className="flex items-center gap-6">
+          <nav className="flex gap-6 text-sm" style={{ color: "var(--text-muted)" }}>
+            <Link
+              href="/blog"
+              className="transition-colors duration-200 hover:text-[var(--accent-1)]"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/tags"
+              className="transition-colors duration-200 hover:text-[var(--accent-1)]"
+            >
+              Tags
+            </Link>
+          </nav>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

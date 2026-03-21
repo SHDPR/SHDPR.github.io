@@ -1,15 +1,29 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-:root {
-  --bg: #1c1410;
-  --surface: #2a1f17;
-  --border: #3d2c1e;
-  --accent-1: #fb923c;
-  --accent-2: #fbbf24;
-  --text-primary: #f5e6d3;
-  --text-muted: #c4a882;
-  --gradient: linear-gradient(90deg, #fb923c, #fbbf24);
+/* ── Dark mode: D2 Slate Dark ── */
+:root,
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --border: #334155;
+  --accent-1: #818cf8;
+  --accent-2: #a5b4fc;
+  --text-primary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --gradient: linear-gradient(90deg, #818cf8, #a5b4fc);
+}
+
+/* ── Light mode: L2 Clean White ── */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #f9fafb;
+  --border: #e5e7eb;
+  --accent-1: #2563eb;
+  --accent-2: #60a5fa;
+  --text-primary: #111827;
+  --text-muted: #6b7280;
+  --gradient: linear-gradient(90deg, #2563eb, #60a5fa);
 }
 
 @theme inline {
@@ -21,6 +35,9 @@ body {
   background-color: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 /* Gradient text utility */
@@ -73,7 +90,7 @@ body {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-1) 20%, transparent);
 }
 
-/* Prose overrides for dark mode */
+/* Prose overrides */
 .prose {
   --tw-prose-body: var(--text-primary);
   --tw-prose-headings: var(--text-primary);
