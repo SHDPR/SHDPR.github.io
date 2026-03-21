@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background -->
+  <circle cx="50" cy="50" r="50" fill="#e8a028"/>
+
+  <!-- Left ear -->
+  <ellipse cx="19" cy="56" rx="17" ry="26" fill="#c47518" transform="rotate(8 19 56)"/>
+  <!-- Left ear inner -->
+  <ellipse cx="19" cy="58" rx="10" ry="18" fill="#d4891e" transform="rotate(8 19 58)"/>
+
+  <!-- Right ear -->
+  <ellipse cx="81" cy="56" rx="17" ry="26" fill="#c47518" transform="rotate(-8 81 56)"/>
+  <!-- Right ear inner -->
+  <ellipse cx="81" cy="58" rx="10" ry="18" fill="#d4891e" transform="rotate(-8 81 58)"/>
+
+  <!-- Head -->
+  <circle cx="50" cy="47" r="30" fill="#e8b030"/>
+
+  <!-- Forehead highlight -->
+  <ellipse cx="50" cy="34" rx="19" ry="12" fill="#f0c040" opacity="0.6"/>
+
+  <!-- Muzzle -->
+  <ellipse cx="50" cy="63" rx="17" ry="12" fill="#f5d060"/>
+
+  <!-- Left eye white -->
+  <circle cx="39" cy="45" r="6.5" fill="white"/>
+  <!-- Left eye -->
+  <circle cx="39.5" cy="45.5" r="5" fill="#2a1204"/>
+  <!-- Left pupil -->
+  <circle cx="39.5" cy="45.5" r="3" fill="#1a0a02"/>
+  <!-- Left eye highlight -->
+  <circle cx="41" cy="43.5" r="1.5" fill="white" opacity="0.9"/>
+
+  <!-- Right eye white -->
+  <circle cx="61" cy="45" r="6.5" fill="white"/>
+  <!-- Right eye -->
+  <circle cx="60.5" cy="45.5" r="5" fill="#2a1204"/>
+  <!-- Right pupil -->
+  <circle cx="60.5" cy="45.5" r="3" fill="#1a0a02"/>
+  <!-- Right eye highlight -->
+  <circle cx="62" cy="43.5" r="1.5" fill="white" opacity="0.9"/>
+
+  <!-- Eyebrows -->
+  <path d="M33 38 Q39 35 45 38" stroke="#b06010" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M55 38 Q61 35 67 38" stroke="#b06010" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <ellipse cx="50" cy="59" rx="6" ry="4.5" fill="#1e0e04"/>
+  <!-- Nose highlight -->
+  <ellipse cx="48" cy="57.5" rx="1.8" ry="1.2" fill="white" opacity="0.35"/>
+
+  <!-- Mouth line center -->
+  <line x1="50" y1="63" x2="50" y2="66" stroke="#1e0e04" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Smile -->
+  <path d="M43 67 Q50 73 57 67" stroke="#1e0e04" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Tongue -->
+  <ellipse cx="50" cy="72" rx="5" ry="3.5" fill="#e86080"/>
+  <line x1="50" y1="69" x2="50" y2="75" stroke="#d04060" stroke-width="1" stroke-linecap="round"/>
+</svg>
