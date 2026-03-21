@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import BackToTop from "@/components/BackToTop";
 import Comments from "@/components/Comments";
 import TagBadge from "@/components/TagBadge";
 import ViewTracker from "@/components/ViewTracker";
@@ -33,6 +34,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <article className="py-10">
+      <BackToTop />
       <ViewTracker slug={slug} />
       <header className="mb-12">
         <time

@@ -16,7 +16,7 @@ export default function PostCard({ post }: PostCardProps) {
           {post.date}
         </time>
         <h2
-          className="mt-2 text-lg font-bold transition-colors duration-200 group-hover:text-[var(--accent-1)]"
+          className="post-title mt-2 text-lg font-bold transition-colors duration-200 group-hover:text-[var(--accent-1)]"
           style={{ color: "var(--text-primary)" }}
         >
           {post.title}
