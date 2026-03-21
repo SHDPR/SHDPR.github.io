@@ -8,7 +8,7 @@ import SearchButton from "./SearchButton";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Header({ lang }: { lang: Lang }) {
-  const posts = getAllPostsMeta();
+  const posts = getAllPostsMeta(lang);
   const tr = t(lang);
 
   return (

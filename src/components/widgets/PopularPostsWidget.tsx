@@ -25,7 +25,7 @@ async function getViewCounts(slugs: string[]): Promise<Record<string, number>> {
 }
 
 export default async function PopularPostsWidget({ lang }: { lang: Lang }) {
-  const posts = getAllPostsMeta();
+  const posts = getAllPostsMeta(lang);
   const views = await getViewCounts(posts.map((p) => p.slug));
   const tr = t(lang);
 

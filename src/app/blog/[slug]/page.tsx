@@ -17,15 +17,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug).catch(() => null);
+  const lang = await getLang();
+  const post = await getPostBySlug(slug, lang).catch(() => null);
   if (!post) return {};
   return { title: `${post.title} — SHDPR` };
 }
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug).catch(() => null);
   const lang = await getLang();
+  const post = await getPostBySlug(slug, lang).catch(() => null);
   const tr = t(lang);
 
   if (!post) notFound();

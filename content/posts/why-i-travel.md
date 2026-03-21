@@ -1,22 +1,22 @@
 ---
-title: "Why I Travel"
+title: "내가 여행하는 이유"
 date: "2026-03-15"
 tags: ["TRAVEL", "DIARY"]
-description: "Travel isn't about the destination. It's about the reset."
+description: "여행은 목적지가 아닙니다. 그것은 리셋입니다."
 ---
 
-People ask why I travel so much. The honest answer: I don't know how else to think clearly.
+왜 그렇게 자주 여행하냐는 질문을 많이 받습니다. 솔직한 대답은, 달리 명료하게 생각할 방법을 모른다는 것입니다.
 
-## Discomfort as a tool
+## 불편함을 도구로
 
-When everything is unfamiliar — the language, the food, the streets — your brain switches back on. You stop running on autopilot.
+언어도, 음식도, 거리도 낯선 곳에 있으면 뇌가 다시 켜집니다. 자동 조종에서 벗어나게 됩니다.
 
-## What I actually remember
+## 실제로 기억에 남는 것
 
-Not the landmarks. The small things. A coffee shop in Lisbon where nobody spoke English and I ordered by pointing. A night bus in Vietnam where I was the only foreigner.
+랜드마크가 아닙니다. 작은 순간들입니다. 리스본의 어떤 카페에서 영어가 전혀 통하지 않아 손으로 가리켜 주문했던 일. 베트남 야간 버스에서 외국인이 나 혼자였던 밤.
 
-## The reset
+## 리셋
 
-Every trip ends. You come back. But something shifts. Problems that felt enormous look smaller. Priorities rearrange themselves quietly.
+여행은 끝납니다. 돌아옵니다. 하지만 무언가가 달라집니다. 거대해 보이던 문제들이 작아 보입니다. 우선순위가 조용히 재배열됩니다.
 
-That's why I travel.
+그래서 여행합니다.

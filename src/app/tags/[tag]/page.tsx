@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function TagPage({ params }: Props) {
   const { tag } = await params;
-  const posts = getPostsByTag(tag);
+  const posts = getPostsByTag(tag, lang);
   const lang = await getLang();
   const tr = t(lang);
 

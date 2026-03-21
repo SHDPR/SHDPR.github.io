@@ -1,20 +1,20 @@
 ---
-title: "Hello, World"
+title: "안녕하세요"
 date: "2026-03-21"
 tags: ["DIARY"]
-description: "The first post. An introduction to this blog."
+description: "첫 번째 포스트. 이 블로그를 시작하며."
 ---
 
-Welcome to my blog.
+블로그를 시작합니다.
 
-This is where I'll write about things I find interesting — technology, travel, ideas, and whatever else comes to mind.
+흥미롭다고 생각하는 것들을 기록하는 공간입니다 — 기술, 여행, 생각들, 그리고 그때그때 떠오르는 것들.
 
-## Why a blog?
+## 왜 블로그인가?
 
-Because some thoughts are too long for a tweet and too personal for a paper.
+어떤 생각들은 트위터 한 줄로 담기엔 너무 길고, 논문으로 쓰기엔 너무 개인적입니다.
 
-## What to expect
+## 기대할 수 있는 것
 
-No fixed schedule. No fixed topic. Just honest writing when I have something worth saying.
+정해진 일정도, 정해진 주제도 없습니다. 그저 할 말이 생겼을 때 솔직하게 쓰는 글.
 
-Stay tuned.
+잘 부탁드립니다.
