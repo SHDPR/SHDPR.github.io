@@ -9,13 +9,13 @@ export default function TagsPage() {
 
   return (
     <div className="py-10">
-      <h1 className="text-3xl font-bold mb-2 gradient-text">Tags</h1>
+      <h1 className="text-3xl font-bold mb-2 gradient-text">태그</h1>
       <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
-        Browse posts by topic
+        태그별 포스트 보기
       </p>
       {tags.length === 0 ? (
         <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-          No tags yet.
+          태그가 없습니다.
         </p>
       ) : (
         <div className="flex flex-wrap gap-3">

@@ -11,11 +11,11 @@ export default function CategoryWidget() {
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
       <h3 className="text-sm font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-        Browse by Category
+        카테고리
       </h3>
       {tags.length === 0 ? (
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-          No categories yet.
+          카테고리가 없습니다.
         </p>
       ) : (
         <div className="flex flex-wrap gap-2">

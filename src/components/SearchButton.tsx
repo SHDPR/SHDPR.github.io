@@ -40,7 +40,7 @@ export default function SearchButton({ posts }: SearchButtonProps) {
     <>
       <button
         onClick={() => setOpen(true)}
-        aria-label="Search posts"
+        aria-label="포스트 검색"
         className="flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200"
         style={{
           backgroundColor: "var(--surface)",
@@ -88,14 +88,14 @@ export default function SearchButton({ posts }: SearchButtonProps) {
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Search posts..."
+                placeholder="포스트 검색..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="search-input flex-1 px-4 py-3 rounded-xl text-sm"
               />
               <button
                 onClick={close}
-                aria-label="Close search"
+                aria-label="검색 닫기"
                 className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200"
                 style={{
                   backgroundColor: "var(--surface)",
@@ -128,11 +128,11 @@ export default function SearchButton({ posts }: SearchButtonProps) {
           >
             {query.trim() === "" ? (
               <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                Start typing to search posts...
+                검색어를 입력하세요...
               </p>
             ) : results.length === 0 ? (
               <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                No posts found for &ldquo;{query}&rdquo;.
+                &ldquo;{query}&rdquo; 검색 결과가 없습니다.
               </p>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>

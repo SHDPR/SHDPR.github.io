@@ -56,13 +56,13 @@ export default function Header() {
               href="/blog"
               className="transition-colors duration-200 hover:text-[var(--accent-1)]"
             >
-              Blog
+              블로그
             </Link>
             <Link
               href="/tags"
               className="transition-colors duration-200 hover:text-[var(--accent-1)]"
             >
-              Tags
+              태그
             </Link>
           </nav>
           <div className="flex items-center gap-2">

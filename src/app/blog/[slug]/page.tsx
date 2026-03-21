@@ -57,7 +57,7 @@ export default async function PostPage({ params }: Props) {
 
       <div className="mt-16 pt-8" style={{ borderTop: "1px solid var(--border)" }}>
         <h2 className="text-lg font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-          Comments
+          댓글
         </h2>
         <Comments />
       </div>

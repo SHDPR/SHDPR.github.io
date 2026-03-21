@@ -35,11 +35,11 @@ export default async function PopularPostsWidget() {
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
       <h3 className="text-sm font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-        Popular Posts
+        인기 포스트
       </h3>
       {sorted.length === 0 ? (
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-          No posts yet.
+          포스트가 없습니다.
         </p>
       ) : (
         <ul className="flex flex-col gap-3">
@@ -53,7 +53,7 @@ export default async function PopularPostsWidget() {
                 {post.title}
               </Link>
               <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-                {views[post.slug] ?? 0} views
+                {views[post.slug] ?? 0}회
               </span>
             </li>
           ))}

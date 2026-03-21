@@ -5,7 +5,7 @@ export default function AboutWidget() {
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
       <h3 className="text-sm font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-        About
+        소개
       </h3>
       <div
         className="w-14 h-14 rounded-full mb-3 flex items-center justify-center text-xl font-bold"
@@ -17,8 +17,7 @@ export default function AboutWidget() {
         S
       </div>
       <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-        Hi, I&apos;m SHDPR. I write about things I find interesting — tech, travel, career, and
-        everyday life.
+        안녕하세요, SHDPR입니다. 기술, 여행, 커리어, 일상 등 관심 있는 것들을 씁니다.
       </p>
     </div>
   );

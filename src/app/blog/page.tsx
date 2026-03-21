@@ -8,9 +8,9 @@ export default function BlogPage() {
 
   return (
     <div className="py-10">
-      <h1 className="text-3xl font-bold mb-2 gradient-text">All Posts</h1>
+      <h1 className="text-3xl font-bold mb-2 gradient-text">전체 포스트</h1>
       <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
-        {posts.length} {posts.length === 1 ? "post" : "posts"} total
+        총 {posts.length}개의 포스트
       </p>
       <div className="flex flex-col gap-4">
         {posts.map((post) => (

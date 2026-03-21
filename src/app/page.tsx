@@ -38,12 +38,12 @@ export default function Home() {
       <section className="py-12">
         <div className="mb-8">
           <h2 className="text-xl font-bold" style={{ color: "var(--text-primary)" }}>
-            Recent Posts
+            최근 포스트
           </h2>
         </div>
         {posts.length === 0 ? (
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            No posts yet.
+            포스트가 없습니다.
           </p>
         ) : (
           <div className="flex flex-col gap-4">
