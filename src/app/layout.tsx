@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
+import VisitorTracker from "@/components/VisitorTracker";
 import { getLang } from "@/lib/i18n";
 
 const geistSans = Geist({
@@ -86,6 +87,7 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col">
+        <VisitorTracker />
         <Header lang={lang} />
         <div className="flex-1 w-full max-w-5xl mx-auto px-4 py-10">
           <div className="flex flex-col lg:flex-row gap-10">
