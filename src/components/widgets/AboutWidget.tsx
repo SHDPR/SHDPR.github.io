@@ -9,7 +9,7 @@ export default function AboutWidget({ lang }: { lang: Lang }) {
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
       <img
-        src="/avatar.svg"
+        src="/avatar.jpg"
         alt="avatar"
         className="w-24 h-24 rounded-full mb-3 object-cover object-top ml-auto"
       />
