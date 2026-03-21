@@ -24,6 +24,12 @@ export default function Header() {
         <div className="flex items-center gap-6">
           <nav className="flex gap-6 text-sm" style={{ color: "var(--text-muted)" }}>
             <Link
+              href="/blog"
+              className="transition-colors duration-200 hover:text-[var(--accent-1)]"
+            >
+              Blog
+            </Link>
+            <Link
               href="/tags"
               className="transition-colors duration-200 hover:text-[var(--accent-1)]"
             >
