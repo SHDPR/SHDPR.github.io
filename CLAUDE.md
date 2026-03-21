@@ -8,6 +8,7 @@ These rules apply to every session working on this project.
 2. **Ask when unsure**: Never assume. Ask the user when not confident about a decision.
 3. **Git for every submission**: Every code change must be committed AND pushed via Git. No exceptions. Commit flow: `npm run build` (must pass) → `git add` → `git commit` → `git push`.
 4. **Verify after every push**: After every push, visit https://shdpr-github-io.vercel.app (wait for Vercel to redeploy, ~1 min) and confirm the intended change is correctly reflected. Report the result to the user.
+5. **Update memory after every task**: After completing any user request, update the relevant memory files in `~/.claude/projects/` to reflect current project state.
 
 ## Project Overview
 
