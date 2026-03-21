@@ -70,11 +70,8 @@ export default async function AboutWidget({ lang }: { lang: Lang }) {
     >
       <div className="flex items-start gap-3">
         {/* Sparkline — left side */}
-        <div className="flex flex-col justify-between flex-1 h-24">
+        <div className="flex items-end flex-1 h-24">
           <Sparkline data={visits} />
-          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
-            {lang === "ko" ? "방문자 추이" : "Visitor trend"}
-          </p>
         </div>
         {/* Avatar + role — right side */}
         <div className="flex flex-col items-end gap-2 shrink-0">
