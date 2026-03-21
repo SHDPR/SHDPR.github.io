@@ -12,7 +12,7 @@ export default function Header() {
         backdropFilter: "blur(12px)",
       }}
     >
-      <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold tracking-tight gradient-text">
           SHDPR
         </Link>

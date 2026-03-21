@@ -1,29 +1,33 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* ── Dark mode: D6 Charcoal + Rose ── */
+/* ── Dark mode: D6 Charcoal + Rose (toned down) ── */
 :root,
 [data-theme="dark"] {
   --bg: #1a1a1a;
   --surface: #252525;
   --border: #333333;
-  --accent-1: #f43f5e;
-  --accent-2: #fb7185;
+  --accent-1: #d4566f;
+  --accent-2: #e8829a;
   --text-primary: #f5f5f5;
   --text-muted: #aaaaaa;
-  --gradient: linear-gradient(90deg, #f43f5e, #fb7185);
+  --gradient: linear-gradient(90deg, #d4566f, #e8829a);
+  --blob-1: rgba(212, 86, 111, 0.22);
+  --blob-2: rgba(99, 102, 241, 0.16);
 }
 
-/* ── Light mode: L2 Clean White ── */
+/* ── Light mode: Clean White + same Rose accent ── */
 [data-theme="light"] {
   --bg: #ffffff;
   --surface: #f9fafb;
   --border: #e5e7eb;
-  --accent-1: #2563eb;
-  --accent-2: #60a5fa;
+  --accent-1: #d4566f;
+  --accent-2: #e8829a;
   --text-primary: #111827;
   --text-muted: #6b7280;
-  --gradient: linear-gradient(90deg, #2563eb, #60a5fa);
+  --gradient: linear-gradient(90deg, #d4566f, #e8829a);
+  --blob-1: rgba(212, 86, 111, 0.12);
+  --blob-2: rgba(99, 102, 241, 0.09);
 }
 
 @theme inline {
@@ -33,6 +37,10 @@
 
 body {
   background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 85% 0%, var(--blob-1) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 100%, var(--blob-2) 0%, transparent 55%);
+  background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   transition:

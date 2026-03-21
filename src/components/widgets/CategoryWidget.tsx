@@ -18,28 +18,29 @@ export default function CategoryWidget() {
           No categories yet.
         </p>
       ) : (
-        <ul className="flex flex-col gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {tags.map((tag) => {
             const count = getPostsByTag(tag).length;
             return (
-              <li key={tag}>
-                <Link
-                  href={`/tags/${tag}`}
-                  className="flex items-center justify-between text-sm transition-colors duration-200 hover:text-[var(--accent-1)]"
-                  style={{ color: "var(--text-muted)" }}
+              <Link
+                key={tag}
+                href={`/tags/${tag}`}
+                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200 tag-pill"
+              >
+                {tag}
+                <span
+                  className="text-xs font-bold px-1.5 py-0.5 rounded-full"
+                  style={{
+                    backgroundColor: "color-mix(in srgb, var(--accent-1) 15%, transparent)",
+                    color: "var(--accent-1)",
+                  }}
                 >
-                  <span>{tag}</span>
-                  <span
-                    className="text-xs px-1.5 py-0.5 rounded-md"
-                    style={{ backgroundColor: "var(--bg)", color: "var(--text-muted)" }}
-                  >
-                    {count}
-                  </span>
-                </Link>
-              </li>
+                  {count}
+                </span>
+              </Link>
             );
           })}
-        </ul>
+        </div>
       )}
     </div>
   );
