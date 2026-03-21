@@ -6,7 +6,8 @@ These rules apply to every session working on this project.
 
 1. **Top-down coding**: Always do an architecture review before any implementation. Present the plan and wait for approval before writing code.
 2. **Ask when unsure**: Never assume. Ask the user when not confident about a decision.
-3. **Git for every submission**: Every code change must be committed via Git. No exceptions.
+3. **Git for every submission**: Every code change must be committed AND pushed via Git. No exceptions. Commit flow: `npm run build` (must pass) → `git add` → `git commit` → `git push`.
+4. **Verify after every push**: After every push, visit https://shdpr-github-io.vercel.app (wait for Vercel to redeploy, ~1 min) and confirm the intended change is correctly reflected. Report the result to the user.
 
 ## Project Overview
 
