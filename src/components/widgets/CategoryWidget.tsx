@@ -23,14 +23,14 @@ export default function CategoryWidget({ lang }: { lang: Lang }) {
           {tr.category_empty}
         </p>
       ) : (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           {tags.map((tag) => {
             const count = getPostsByTag(tag).length;
             return (
               <Link
                 key={tag}
                 href={`/tags/${tag}`}
-                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-md transition-all duration-200 tag-pill"
+                className="inline-flex items-center gap-1 text-xs font-medium px-2 py-1.5 rounded-md transition-all duration-200 tag-pill"
               >
                 {tag}
                 <span
