@@ -42,7 +42,7 @@ body {
 
 /* Homepage wave shelf decoration */
 .bg-wave {
-  fill: #212121;
+  fill: var(--surface);
 }
 [data-theme="light"] .bg-wave {
   fill: #f0f0f5;

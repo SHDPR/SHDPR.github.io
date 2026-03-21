@@ -25,7 +25,7 @@ export default async function TagPage({ params }: Props) {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">
-        <span className="text-gray-500">#{tag}</span> 태그 포스트
+        <span style={{ color: "var(--text-muted)" }}>#{tag}</span> 태그 포스트
       </h1>
       {posts.map((post) => (
         <PostCard key={post.slug} post={post} />
