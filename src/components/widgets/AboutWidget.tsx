@@ -10,7 +10,7 @@ export default function AboutWidget() {
       <img
         src="/avatar.jpg"
         alt="avatar"
-        className="w-14 h-14 rounded-full mb-3 object-cover object-top"
+        className="w-24 h-24 rounded-full mb-3 object-cover object-top ml-auto"
       />
       <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
         안녕하세요, SHDPR입니다. 기술, 여행, 커리어, 일상 등 관심 있는 것들을 씁니다.
