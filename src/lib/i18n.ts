@@ -2,8 +2,7 @@ export const translations = {
   ko: {
     nav_blog: "블로그",
     nav_tags: "태그",
-    about_title: "소개",
-    about_bio: "안녕하세요, SHDPR입니다. 기술, 여행, 커리어, 일상 등 관심 있는 것들을 씁니다.",
+    about_role: "SSD 펌웨어 엔지니어",
     category_title: "카테고리",
     category_empty: "카테고리가 없습니다.",
     popular_title: "인기 포스트",
@@ -27,8 +26,7 @@ export const translations = {
   en: {
     nav_blog: "Blog",
     nav_tags: "Tags",
-    about_title: "About",
-    about_bio: "Hi, I'm SHDPR. I write about tech, travel, career, and everyday life.",
+    about_role: "SSD Firmware Engineer",
     category_title: "Categories",
     category_empty: "No categories yet.",
     popular_title: "Popular Posts",
