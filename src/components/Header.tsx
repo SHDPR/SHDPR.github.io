@@ -54,7 +54,10 @@ export default function Header({ lang }: { lang: Lang }) {
           </span>
         </Link>
         <div className="flex items-center gap-6">
-          <nav className="flex gap-6 text-sm" style={{ color: "var(--text-muted)" }}>
+          <nav
+            className="flex gap-6 text-xs font-bold uppercase tracking-widest"
+            style={{ color: "var(--text-muted)" }}
+          >
             <Link
               href="/blog"
               className="transition-colors duration-200 hover:text-[var(--accent-1)]"
