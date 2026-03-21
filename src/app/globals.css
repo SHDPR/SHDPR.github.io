@@ -109,6 +109,14 @@ body {
   border-color: var(--accent-1);
 }
 
+/* Post title + body font (Playfair Display) */
+.post-title {
+  font-family: var(--font-playfair), var(--font-korean), serif;
+}
+.prose {
+  font-family: var(--font-playfair), var(--font-korean), serif;
+}
+
 /* Prose overrides */
 .prose {
   --tw-prose-body: var(--text-primary);

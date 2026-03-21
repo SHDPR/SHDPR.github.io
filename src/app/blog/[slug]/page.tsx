@@ -41,7 +41,9 @@ export default async function PostPage({ params }: Props) {
         >
           {post.date}
         </time>
-        <h1 className="text-4xl font-bold mt-3 mb-4 gradient-text leading-tight">{post.title}</h1>
+        <h1 className="post-title text-4xl font-bold mt-3 mb-4 gradient-text leading-tight">
+          {post.title}
+        </h1>
         {post.description && (
           <p className="text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
             {post.description}

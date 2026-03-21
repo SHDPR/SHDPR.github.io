@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Do_Hyeon, Geist, Geist_Mono, Syne } from "next/font/google";
+import {
+  DM_Serif_Display,
+  Do_Hyeon,
+  Geist,
+  Geist_Mono,
+  Playfair_Display,
+  Syne,
+} from "next/font/google";
 
 import "./globals.css";
 import Footer from "@/components/Footer";
@@ -35,6 +42,12 @@ const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin"],
   style: "italic",
   weight: "400",
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -81,7 +94,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className={`${geistSans.variable} ${geistMono.variable} ${dmSerifDisplay.variable} ${syne.variable} ${doHyeon.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${dmSerifDisplay.variable} ${syne.variable} ${doHyeon.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
