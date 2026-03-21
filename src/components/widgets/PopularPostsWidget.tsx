@@ -1,15 +1,23 @@
+import { Redis } from "@upstash/redis";
 import Link from "next/link";
 
 import { getAllPostsMeta } from "@/lib/posts";
 
-async function getViewCounts(): Promise<Record<string, number>> {
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
+
+async function getViewCounts(slugs: string[]): Promise<Record<string, number>> {
+  if (slugs.length === 0) return {};
   try {
-    const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
-    const res = await fetch(`${baseUrl}/api/views`, { cache: "no-store" });
-    if (!res.ok) return {};
-    return res.json();
+    const keys = slugs.map((s) => `post:views:${s}`);
+    const counts = await redis.mget<number[]>(...keys);
+    const result: Record<string, number> = {};
+    slugs.forEach((slug, i) => {
+      result[slug] = counts[i] ?? 0;
+    });
+    return result;
   } catch {
     return {};
   }
@@ -17,7 +25,7 @@ async function getViewCounts(): Promise<Record<string, number>> {
 
 export default async function PopularPostsWidget() {
   const posts = getAllPostsMeta();
-  const views = await getViewCounts();
+  const views = await getViewCounts(posts.map((p) => p.slug));
 
   const sorted = [...posts].sort((a, b) => (views[b.slug] ?? 0) - (views[a.slug] ?? 0)).slice(0, 3);
 
