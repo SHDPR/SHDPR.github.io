@@ -40,18 +40,12 @@ body {
     color 300ms ease;
 }
 
-/* Background SVG decoration — diagonal triangle + dot grid */
-.bg-tri {
+/* Homepage wave shelf decoration */
+.bg-wave {
   fill: #212121;
 }
-.bg-dot {
-  fill: #383838;
-}
-[data-theme="light"] .bg-tri {
+[data-theme="light"] .bg-wave {
   fill: #f0f0f5;
-}
-[data-theme="light"] .bg-dot {
-  fill: #d0d0da;
 }
 
 /* Gradient text utility */

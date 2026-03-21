@@ -43,45 +43,14 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col">
-        {/* Fixed background decoration — diagonal triangle with dot grid */}
-        <svg
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{
-            position: "fixed",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 0,
-            pointerEvents: "none",
-          }}
-          preserveAspectRatio="xMidYMid slice"
-          viewBox="0 0 1440 900"
-        >
-          <defs>
-            <pattern id="bg-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="1.4" className="bg-dot" />
-            </pattern>
-            <clipPath id="bg-tri-clip">
-              <polygon points="780,0 1440,0 1440,900" />
-            </clipPath>
-          </defs>
-          <polygon points="780,0 1440,0 1440,900" className="bg-tri" />
-          <rect width="1440" height="900" fill="url(#bg-dots)" clipPath="url(#bg-tri-clip)" />
-        </svg>
         <Header />
-        <div
-          className="flex-1 w-full max-w-5xl mx-auto px-4 py-10"
-          style={{ position: "relative", zIndex: 1 }}
-        >
+        <div className="flex-1 w-full max-w-5xl mx-auto px-4 py-10">
           <div className="flex flex-col lg:flex-row gap-10">
             <main className="flex-1 min-w-0">{children}</main>
             <Sidebar />
           </div>
         </div>
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <Footer />
-        </div>
+        <Footer />
       </body>
     </html>
   );

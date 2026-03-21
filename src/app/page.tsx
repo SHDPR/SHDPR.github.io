@@ -3,12 +3,32 @@ import Link from "next/link";
 import PostCard from "@/components/PostCard";
 import { getAllPostsMeta } from "@/lib/posts";
 
-
 export default function Home() {
   const posts = getAllPostsMeta().slice(0, 5);
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
+      {/* Deep shelf wave — homepage only, fixed behind viewport top */}
+      <svg
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "420px",
+          zIndex: -1,
+          pointerEvents: "none",
+        }}
+        viewBox="0 0 1440 420"
+        preserveAspectRatio="xMidYMax slice"
+      >
+        <path
+          className="bg-wave"
+          d="M0,0 L1440,0 L1440,320 C1200,385 900,355 600,340 C300,325 140,372 0,358 Z"
+        />
+      </svg>
       {/* Hero */}
       <section className="py-16">
         <p
