@@ -96,6 +96,12 @@ export default async function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="SHDPR Blog RSS Feed"
+          href="https://shdpr-github-io.vercel.app/feed.xml"
+        />
       </head>
       <body className="min-h-full flex flex-col">
         {/* Wave shelf — fixed behind every page */}

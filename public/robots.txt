@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://shdpr-github-io.vercel.app/sitemap.xml
+Feed: https://shdpr-github-io.vercel.app/feed.xml
