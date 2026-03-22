@@ -12,33 +12,9 @@ export default function ThemeToggle() {
 
   function toggle() {
     const next = theme === "dark" ? "light" : "dark";
-
-    const apply = () => {
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-      setTheme(next);
-    };
-
-    if (!document.startViewTransition) {
-      apply();
-      return;
-    }
-
-    // Disable CSS transitions during view transition to prevent conflicts
-    document.documentElement.classList.add("no-transitions");
-
-    const transition = document.startViewTransition(apply);
-
-    transition.ready.then(() => {
-      document.documentElement.animate(
-        { clipPath: ["inset(0 0 100% 0)", "inset(0 0 0% 0)"] },
-        { duration: 600, easing: "ease-in-out", pseudoElement: "::view-transition-new(root)" },
-      );
-    });
-
-    transition.finished.then(() => {
-      document.documentElement.classList.remove("no-transitions");
-    });
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    setTheme(next);
   }
 
   return (

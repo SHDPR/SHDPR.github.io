@@ -31,36 +31,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* Suppress all transitions during view transition (prevents conflicts) */
-.no-transitions *,
-.no-transitions *::before,
-.no-transitions *::after {
-  transition: none !important;
-}
-
-/* View transition pseudo-elements: no default animation, JS controls it */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-}
-
-/* Smooth theme transition for all elements */
-*,
-*::before,
-*::after {
-  transition:
-    background-color 400ms ease,
-    color 400ms ease,
-    border-color 400ms ease,
-    fill 400ms ease,
-    stroke 400ms ease,
-    box-shadow 400ms ease;
-}
-
 body {
   background-color: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-geist-sans), var(--font-korean), Arial, Helvetica, sans-serif;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 /* Homepage wave shelf decoration */
