@@ -52,14 +52,14 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "SHDPR Blog",
-    template: "%s — SHDPR",
+    default: "blog@shdpr",
+    template: "%s — blog@shdpr",
   },
   description:
     "기술, 여행, 커리어, 일상에 관한 SHDPR의 블로그 / Personal blog by SHDPR about tech, travel, career, and life.",
   metadataBase: new URL("https://shdpr-github-io.vercel.app"),
   openGraph: {
-    siteName: "SHDPR Blog",
+    siteName: "blog@shdpr",
     type: "website",
     locale: "ko_KR",
   },
