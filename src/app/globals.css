@@ -31,6 +31,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Suppress all transitions during view transition (prevents conflicts) */
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after {
+  transition: none !important;
+}
+
+/* View transition pseudo-elements: no default animation, JS controls it */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
 /* Smooth theme transition for all elements */
 *,
 *::before,
