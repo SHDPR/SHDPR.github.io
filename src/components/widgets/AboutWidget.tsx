@@ -62,6 +62,7 @@ function Sparkline({ data }: { data: number[] }) {
 export default async function AboutWidget({ lang }: { lang: Lang }) {
   const tr = t(lang);
   const visits = await getDailyVisits();
+  const yrs = new Date().getFullYear() - 2023;
 
   return (
     <div
@@ -81,13 +82,27 @@ export default async function AboutWidget({ lang }: { lang: Lang }) {
             className="w-24 h-24 rounded-full object-cover object-top"
           />
           <p
-            className="text-sm font-medium text-right"
+            className="text-sm font-medium text-right flex items-center gap-1.5 justify-end"
             style={{
               color: "var(--text-muted)",
               fontFamily: "var(--font-playfair), var(--font-korean), serif",
             }}
           >
-            {tr.about_role}
+            {tr.about_role(yrs)}
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--accent-1)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ flexShrink: 0 }}
+            >
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
           </p>
         </div>
       </div>
