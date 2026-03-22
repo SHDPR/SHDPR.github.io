@@ -49,7 +49,7 @@ export function getAllPostsMeta(lang: Lang = "ko"): PostMeta[] {
         title: data.title ?? "Untitled",
         date: data.date instanceof Date ? data.date.toISOString().slice(0, 10) : (data.date ?? ""),
         datetime: rawDatetime ? new Date(rawDatetime).toISOString() : "",
-        tags: data.tags ?? [],
+        tags: (data.tags ?? []).slice().sort(),
         description: data.description ?? "",
       } as PostMeta;
     });
