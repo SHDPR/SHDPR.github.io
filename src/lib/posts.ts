@@ -3,6 +3,7 @@ import path from "path";
 
 import matter from "gray-matter";
 import { remark } from "remark";
+import remarkGfm from "remark-gfm";
 import html from "remark-html";
 
 import { Lang } from "./i18n";
@@ -56,7 +57,7 @@ export function getAllPostsMeta(lang: Lang = "ko"): PostMeta[] {
 export async function getPostBySlug(slug: string, lang: Lang = "ko"): Promise<Post> {
   const { data, content } = readPostFile(slug, lang);
 
-  const processed = await remark().use(html).process(content);
+  const processed = await remark().use(remarkGfm).use(html).process(content);
   const contentHtml = processed.toString();
 
   return {
