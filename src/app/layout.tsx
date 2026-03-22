@@ -73,13 +73,11 @@ export const metadata: Metadata = {
   },
 };
 
-// Runs before first paint — reads localStorage or system preference and sets
-// data-theme on <html> to prevent any flash of wrong theme.
+// Runs before first paint — uses system preference only (no localStorage).
 const themeInitScript = `
 (function() {
-  var saved = localStorage.getItem('theme');
   var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  var theme = saved || (prefersDark ? 'dark' : 'light');
+  var theme = prefersDark ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', theme);
 })();
 `;
