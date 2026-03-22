@@ -3,10 +3,8 @@ title: "Experiencing the Power of AI Firsthand"
 date: "2026-03-22"
 datetime: "2026-03-22T15:00:00+09:00"
 tags: ["TECH", "DAILY"]
-description: "An SSD firmware engineer who kept AI at arm's length builds a blog with Claude AI — and is genuinely surprised."
+description: "Two Days with Claude AI"
 ---
-
-*Two Days with Claude AI*
 
 I'm a junior SSD firmware engineer with three years of experience at companies like Samsung and SK Hynix.
 I write code for a living, but firmware is a fairly niche embedded domain — one that never really gave me a reason to get close to AI.

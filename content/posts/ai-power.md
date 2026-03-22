@@ -3,10 +3,8 @@ title: "AI의 강력함 실감하기"
 date: "2026-03-22"
 datetime: "2026-03-22T15:00:00+09:00"
 tags: ["TECH", "DAILY"]
-description: "AI와 거리를 두던 SSD 펌웨어 엔지니어가 Claude AI와 함께 블로그를 만들며 느낀 것들"
+description: "Claude AI와 함께한 이틀"
 ---
-
-*Claude AI와 함께한 이틀*
 
 삼성전자 및 SK하이닉스에서 SSD 펌웨어를 개발하는 3년차 주니어 엔지니어다.
 나름 코딩으로 먹고 살고 있기는 하지만, 펌웨어라고 하는 꽤 특수한 임베디드 분야이다 보니 AI와 친해질 기회가 딱히 없었다.
