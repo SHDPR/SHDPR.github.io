@@ -12,9 +12,16 @@ export default function ThemeToggle() {
 
   function toggle() {
     const next = theme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-    setTheme(next);
+    const apply = () => {
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      setTheme(next);
+    };
+    if (!document.startViewTransition) {
+      apply();
+      return;
+    }
+    document.startViewTransition(apply);
   }
 
   return (
