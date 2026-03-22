@@ -31,22 +31,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* View Transitions: top-to-bottom wipe on theme switch */
-@keyframes theme-reveal-down {
-  from {
-    clip-path: inset(0 0 100% 0);
-  }
-  to {
-    clip-path: inset(0 0 0% 0);
-  }
-}
-
-::view-transition-old(root) {
-  animation: none;
-}
-
+/* View Transitions: disable default cross-fade, animation controlled via JS */
+::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: theme-reveal-down 500ms ease;
+  animation: none;
 }
 
 /* Smooth theme transition for all elements */

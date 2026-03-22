@@ -17,11 +17,19 @@ export default function ThemeToggle() {
       localStorage.setItem("theme", next);
       setTheme(next);
     };
+
     if (!document.startViewTransition) {
       apply();
       return;
     }
-    document.startViewTransition(apply);
+
+    const transition = document.startViewTransition(apply);
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        { clipPath: ["inset(0 0 100% 0)", "inset(0 0 0% 0)"] },
+        { duration: 500, easing: "ease", pseudoElement: "::view-transition-new(root)" },
+      );
+    });
   }
 
   return (
