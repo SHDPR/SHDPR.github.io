@@ -2,7 +2,7 @@
 title: "Experiencing the Power of AI Firsthand"
 date: "2026-03-22"
 datetime: "2026-03-22T15:00:00+09:00"
-tags: ["DAILY"]
+tags: ["TECH", "DAILY"]
 description: "An SSD firmware engineer who kept AI at arm's length builds a blog with Claude AI — and is genuinely surprised."
 ---
 

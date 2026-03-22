@@ -2,7 +2,7 @@
 title: "AI의 강력함 실감하기"
 date: "2026-03-22"
 datetime: "2026-03-22T15:00:00+09:00"
-tags: ["DAILY"]
+tags: ["TECH", "DAILY"]
 description: "AI와 거리를 두던 SSD 펌웨어 엔지니어가 Claude AI와 함께 블로그를 만들며 느낀 것들"
 ---
 
