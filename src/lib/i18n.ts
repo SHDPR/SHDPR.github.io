@@ -2,6 +2,7 @@ export const translations = {
   ko: {
     nav_blog: "블로그",
     nav_tags: "태그",
+    about_bio: ["삼성전자 DS  2022~2023", "SK Hynix  2023~현재"],
     about_role: "SSD 펌웨어 엔지니어입니다",
     category_title: "카테고리",
     category_empty: "카테고리가 없습니다.",
@@ -26,6 +27,7 @@ export const translations = {
   en: {
     nav_blog: "Blog",
     nav_tags: "Tags",
+    about_bio: ["Samsung Electronics DS  2022~2023", "SK Hynix  2023~Present"],
     about_role: "SSD Firmware Engineer",
     category_title: "Categories",
     category_empty: "No categories yet.",

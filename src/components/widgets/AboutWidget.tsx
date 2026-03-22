@@ -80,6 +80,15 @@ export default async function AboutWidget({ lang }: { lang: Lang }) {
             alt="avatar"
             className="w-24 h-24 rounded-full object-cover object-top"
           />
+          {tr.about_bio.map((line) => (
+            <p
+              key={line}
+              className="text-xs text-right leading-snug"
+              style={{ color: "var(--text-muted)" }}
+            >
+              {line}
+            </p>
+          ))}
           <p
             className="text-sm font-medium text-right"
             style={{
