@@ -66,7 +66,7 @@ export default async function AboutWidget({ lang }: { lang: Lang }) {
 
   return (
     <div
-      className="rounded-xl p-5"
+      className="rounded-xl p-5 overflow-hidden"
       style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)" }}
     >
       <div className="flex items-start gap-3">
@@ -74,50 +74,51 @@ export default async function AboutWidget({ lang }: { lang: Lang }) {
         <div className="flex items-end flex-1 h-24">
           <Sparkline data={visits} />
         </div>
-        {/* Avatar + role — right side */}
-        <div className="flex flex-col items-end gap-2 shrink-0">
+        {/* Avatar — right side, fixed width */}
+        <div className="shrink-0">
           <img
             src="/avatar.jpg"
             alt="avatar"
             className="w-24 h-24 rounded-full object-cover object-top"
           />
-          <p
-            className="text-sm font-medium text-right flex items-center gap-1.5 justify-end whitespace-nowrap"
-            style={{
-              color: "var(--text-muted)",
-              fontFamily: "var(--font-playfair), var(--font-korean), serif",
-            }}
-          >
-            {tr.about_role(yrs)}
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 20,
-                height: 20,
-                borderRadius: 4,
-                backgroundColor: "#111111",
-                flexShrink: 0,
-              }}
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="4 17 10 11 4 5" />
-                <line x1="12" y1="19" x2="20" y2="19" />
-              </svg>
-            </span>
-          </p>
         </div>
       </div>
+      {/* Role text — full width, right-aligned, below the row */}
+      <p
+        className="mt-2 text-sm font-medium flex items-center gap-1.5 justify-end"
+        style={{
+          color: "var(--text-muted)",
+          fontFamily: "var(--font-playfair), var(--font-korean), serif",
+        }}
+      >
+        {tr.about_role(yrs)}
+        <span
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 20,
+            height: 20,
+            borderRadius: 4,
+            backgroundColor: "#111111",
+            flexShrink: 0,
+          }}
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="4 17 10 11 4 5" />
+            <line x1="12" y1="19" x2="20" y2="19" />
+          </svg>
+        </span>
+      </p>
     </div>
   );
 }
