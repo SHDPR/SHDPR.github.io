@@ -2,7 +2,7 @@
 title: "Building a Blog with Claude AI"
 date: "2026-03-22"
 datetime: "2026-03-22T04:00:53+09:00"
-tags: ["TECH"]
+tags: ["TECH", "DAILY"]
 description: "You can build your own website with no prior coding knowledge"
 ---
 

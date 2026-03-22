@@ -2,7 +2,7 @@
 title: "Claude AI로 블로그 만들기"
 date: "2026-03-22"
 datetime: "2026-03-22T04:00:53+09:00"
-tags: ["TECH"]
+tags: ["TECH", "DAILY"]
 description: "코딩 지식이 전혀 없어도 나만의 웹사이트를 만들 수 있습니다"
 ---
 
