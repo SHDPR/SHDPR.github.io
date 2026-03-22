@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import PostCard from "@/components/PostCard";
+import { BASE_URL } from "@/lib/constants";
 import { getLang, t } from "@/lib/i18n";
 import { getPostsByTag, getAllTags } from "@/lib/posts";
 
@@ -14,7 +15,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { tag } = await params;
-  return { title: `#${tag} — SHDPR` };
+  return {
+    title: `#${tag}`,
+    alternates: { canonical: `${BASE_URL}/tags/${tag}` },
+  };
 }
 
 export default async function TagPage({ params }: Props) {

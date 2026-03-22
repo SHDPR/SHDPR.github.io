@@ -1,8 +1,7 @@
 import { MetadataRoute } from "next";
 
+import { BASE_URL } from "@/lib/constants";
 import { getAllPostsMeta, getAllTags } from "@/lib/posts";
-
-const BASE_URL = "https://shdpr-github-io.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPostsMeta();

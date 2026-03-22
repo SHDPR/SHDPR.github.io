@@ -1,3 +1,8 @@
+// ── Site ───────────────────────────────────────────────────────────────────────
+
+/** Canonical base URL of the live site. */
+export const BASE_URL = "https://shdpr-github-io.vercel.app";
+
 // ── View tracking ──────────────────────────────────────────────────────────────
 
 /** Number of days in the rolling view-count window (sparkline + popular posts). */

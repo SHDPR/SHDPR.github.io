@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import VisitorTracker from "@/components/VisitorTracker";
+import { BASE_URL } from "@/lib/constants";
 import { getLang } from "@/lib/i18n";
 
 const geistSans = Geist({
@@ -57,7 +58,10 @@ export const metadata: Metadata = {
   },
   description:
     "기술, 여행, 커리어, 일상에 관한 SHDPR의 블로그 / Personal blog by SHDPR about tech, travel, career, and life.",
-  metadataBase: new URL("https://shdpr-github-io.vercel.app"),
+  metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: BASE_URL,
+  },
   openGraph: {
     siteName: "blog@shdpr",
     type: "website",
@@ -100,7 +104,7 @@ export default async function RootLayout({
           rel="alternate"
           type="application/rss+xml"
           title="SHDPR Blog RSS Feed"
-          href="https://shdpr-github-io.vercel.app/feed.xml"
+          href={`${BASE_URL}/feed.xml`}
         />
       </head>
       <body className="min-h-full flex flex-col">

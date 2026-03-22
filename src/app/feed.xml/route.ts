@@ -1,7 +1,5 @@
-import { RSS_CACHE_MAX_AGE_SECONDS } from "@/lib/constants";
+import { BASE_URL, RSS_CACHE_MAX_AGE_SECONDS } from "@/lib/constants";
 import { getAllPostsMeta } from "@/lib/posts";
-
-const BASE_URL = "https://shdpr-github-io.vercel.app";
 
 function escapeXml(str: string): string {
   return str

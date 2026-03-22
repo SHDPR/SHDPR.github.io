@@ -1,8 +1,12 @@
 import PostCard from "@/components/PostCard";
+import { BASE_URL } from "@/lib/constants";
 import { getLang, t } from "@/lib/i18n";
 import { getAllPostsMeta } from "@/lib/posts";
 
-export const metadata = { title: "Blog — SHDPR" };
+export const metadata = {
+  title: "Blog",
+  alternates: { canonical: `${BASE_URL}/blog` },
+};
 
 export default async function BlogPage() {
   const lang = await getLang();

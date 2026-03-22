@@ -4,6 +4,7 @@ import BackToTop from "@/components/BackToTop";
 import Comments from "@/components/Comments";
 import TagBadge from "@/components/TagBadge";
 import ViewTracker from "@/components/ViewTracker";
+import { BASE_URL } from "@/lib/constants";
 import { getLang, t } from "@/lib/i18n";
 import { getAllPostsMeta, getPostBySlug } from "@/lib/posts";
 
@@ -21,7 +22,31 @@ export async function generateMetadata({ params }: Props) {
   const lang = await getLang();
   const post = await getPostBySlug(slug, lang).catch(() => null);
   if (!post) return {};
-  return { title: `${post.title} — SHDPR` };
+
+  const url = `${BASE_URL}/blog/${slug}`;
+
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: {
+      canonical: url,
+      languages: {
+        ko: url,
+        en: url,
+        "x-default": url,
+      },
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url,
+      type: "article",
+      publishedTime: post.datetime,
+      modifiedTime: post.datetime,
+      locale: lang === "ko" ? "ko_KR" : "en_US",
+      authors: ["SHDPR"],
+    },
+  };
 }
 
 export default async function PostPage({ params }: Props) {
@@ -32,8 +57,28 @@ export default async function PostPage({ params }: Props) {
 
   if (!post) notFound();
 
+  const url = `${BASE_URL}/blog/${slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.datetime,
+    dateModified: post.datetime,
+    author: { "@type": "Person", name: "SHDPR", url: BASE_URL },
+    publisher: { "@type": "Organization", name: "blog@shdpr", url: BASE_URL },
+    url,
+    inLanguage: lang === "ko" ? "ko-KR" : "en-US",
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  };
+
   return (
     <article className="py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <BackToTop />
       <ViewTracker slug={slug} />
       <header className="mb-12">

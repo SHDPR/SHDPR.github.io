@@ -1,9 +1,13 @@
 import Link from "next/link";
 
+import { BASE_URL } from "@/lib/constants";
 import { getLang, t } from "@/lib/i18n";
 import { getAllTags, getPostsByTag } from "@/lib/posts";
 
-export const metadata = { title: "Tags — SHDPR" };
+export const metadata = {
+  title: "Tags",
+  alternates: { canonical: `${BASE_URL}/tags` },
+};
 
 export default async function TagsPage() {
   const tags = getAllTags();
