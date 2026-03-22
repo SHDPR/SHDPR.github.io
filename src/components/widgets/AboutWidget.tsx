@@ -8,9 +8,9 @@ const redis = new Redis({
 });
 
 async function getDailyVisits(): Promise<number[]> {
-  const days = Array.from({ length: 14 }, (_, i) => {
+  const days = Array.from({ length: 30 }, (_, i) => {
     const d = new Date();
-    d.setDate(d.getDate() - (13 - i));
+    d.setDate(d.getDate() - (29 - i));
     return d.toISOString().slice(0, 10);
   });
   const keys = days.map((d) => `blog:daily:visits:${d}`);
@@ -18,7 +18,7 @@ async function getDailyVisits(): Promise<number[]> {
     const counts = await redis.mget<number[]>(...keys);
     return counts.map((c) => c ?? 0);
   } catch {
-    return Array(14).fill(0);
+    return Array(30).fill(0);
   }
 }
 

@@ -9,14 +9,24 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN!,
 });
 
-async function getViewCounts(slugs: string[]): Promise<Record<string, number>> {
+function getLast30Days(): string[] {
+  return Array.from({ length: 30 }, (_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (29 - i));
+    return d.toISOString().slice(0, 10);
+  });
+}
+
+async function get30DayViewCounts(slugs: string[]): Promise<Record<string, number>> {
   if (slugs.length === 0) return {};
+  const days = getLast30Days();
+  // Build all keys: post:daily:views:{slug}:{date} for every slug × day
+  const allKeys = slugs.flatMap((slug) => days.map((day) => `post:daily:views:${slug}:${day}`));
   try {
-    const keys = slugs.map((s) => `post:views:${s}`);
-    const counts = await redis.mget<number[]>(...keys);
+    const counts = await redis.mget<number[]>(...allKeys);
     const result: Record<string, number> = {};
-    slugs.forEach((slug, i) => {
-      result[slug] = counts[i] ?? 0;
+    slugs.forEach((slug, si) => {
+      result[slug] = days.reduce((sum, _, di) => sum + (counts[si * 30 + di] ?? 0), 0);
     });
     return result;
   } catch {
@@ -26,7 +36,7 @@ async function getViewCounts(slugs: string[]): Promise<Record<string, number>> {
 
 export default async function PopularPostsWidget({ lang }: { lang: Lang }) {
   const posts = getAllPostsMeta(lang);
-  const views = await getViewCounts(posts.map((p) => p.slug));
+  const views = await get30DayViewCounts(posts.map((p) => p.slug));
   const tr = t(lang);
 
   const sorted = [...posts]

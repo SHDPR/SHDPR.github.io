@@ -18,6 +18,8 @@ function getValidSlugs(): Set<string> {
   return validSlugs;
 }
 
+const TTL_DAYS = 31 * 24 * 60 * 60; // 31 days in seconds
+
 export async function POST(_req: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
@@ -26,6 +28,14 @@ export async function POST(_req: Request, { params }: { params: Promise<{ slug: 
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  const views = await redis.incr(`post:views:${slug}`);
+  const today = new Date().toISOString().slice(0, 10);
+  const dailyKey = `post:daily:views:${slug}:${today}`;
+  const totalKey = `post:views:${slug}`;
+
+  const [views] = await Promise.all([
+    redis.incr(totalKey),
+    redis.incr(dailyKey).then(() => redis.expire(dailyKey, TTL_DAYS)),
+  ]);
+
   return NextResponse.json({ views });
 }

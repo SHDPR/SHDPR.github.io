@@ -6,8 +6,12 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN!,
 });
 
+const TTL_DAYS = 31 * 24 * 60 * 60; // 31 days in seconds
+
 export async function POST() {
   const today = new Date().toISOString().slice(0, 10);
-  await redis.incr(`blog:daily:visits:${today}`);
+  const key = `blog:daily:visits:${today}`;
+  await redis.incr(key);
+  await redis.expire(key, TTL_DAYS);
   return NextResponse.json({ ok: true });
 }
