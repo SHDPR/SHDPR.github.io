@@ -1,6 +1,7 @@
 import { Redis } from "@upstash/redis";
 import { NextResponse } from "next/server";
 
+import { VIEW_TTL_SECONDS } from "@/lib/constants";
 import { getAllPostsMeta } from "@/lib/posts";
 
 const redis = new Redis({
@@ -18,8 +19,6 @@ function getValidSlugs(): Set<string> {
   return validSlugs;
 }
 
-const TTL_DAYS = 31 * 24 * 60 * 60; // 31 days in seconds
-
 export async function POST(_req: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
@@ -34,7 +33,7 @@ export async function POST(_req: Request, { params }: { params: Promise<{ slug: 
 
   const [views] = await Promise.all([
     redis.incr(totalKey),
-    redis.incr(dailyKey).then(() => redis.expire(dailyKey, TTL_DAYS)),
+    redis.incr(dailyKey).then(() => redis.expire(dailyKey, VIEW_TTL_SECONDS)),
   ]);
 
   return NextResponse.json({ views });

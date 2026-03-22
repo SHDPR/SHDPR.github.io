@@ -1,6 +1,7 @@
 import { Redis } from "@upstash/redis";
 import Link from "next/link";
 
+import { POPULAR_POSTS_COUNT, VIEW_WINDOW_DAYS } from "@/lib/constants";
 import { Lang, t } from "@/lib/i18n";
 import { getAllPostsMeta } from "@/lib/posts";
 
@@ -9,24 +10,32 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN!,
 });
 
-function getLast30Days(): string[] {
-  return Array.from({ length: 30 }, (_, i) => {
+function getLastNDays(n: number): string[] {
+  return Array.from({ length: n }, (_, i) => {
     const d = new Date();
-    d.setDate(d.getDate() - (29 - i));
+    d.setDate(d.getDate() - (n - 1 - i));
     return d.toISOString().slice(0, 10);
   });
 }
 
-async function get30DayViewCounts(slugs: string[]): Promise<Record<string, number>> {
+async function getRollingViewCounts(slugs: string[]): Promise<Record<string, number>> {
   if (slugs.length === 0) return {};
-  const days = getLast30Days();
-  // Build all keys: post:daily:views:{slug}:{date} for every slug × day
-  const allKeys = slugs.flatMap((slug) => days.map((day) => `post:daily:views:${slug}:${day}`));
+  const days = getLastNDays(VIEW_WINDOW_DAYS);
+  // Fetch 30-day daily keys AND cumulative totals in one mget
+  const dailyKeys = slugs.flatMap((slug) => days.map((day) => `post:daily:views:${slug}:${day}`));
+  const totalKeys = slugs.map((slug) => `post:views:${slug}`);
   try {
-    const counts = await redis.mget<number[]>(...allKeys);
+    const all = await redis.mget<number[]>(...dailyKeys, ...totalKeys);
+    const dailyCounts = all.slice(0, dailyKeys.length);
+    const totalCounts = all.slice(dailyKeys.length);
     const result: Record<string, number> = {};
     slugs.forEach((slug, si) => {
-      result[slug] = days.reduce((sum, _, di) => sum + (counts[si * 30 + di] ?? 0), 0);
+      const rolling = days.reduce(
+        (sum, _, di) => sum + (dailyCounts[si * VIEW_WINDOW_DAYS + di] ?? 0),
+        0,
+      );
+      // Fall back to cumulative total while daily data is still building up
+      result[slug] = rolling > 0 ? rolling : (totalCounts[si] ?? 0);
     });
     return result;
   } catch {
@@ -36,12 +45,12 @@ async function get30DayViewCounts(slugs: string[]): Promise<Record<string, numbe
 
 export default async function PopularPostsWidget({ lang }: { lang: Lang }) {
   const posts = getAllPostsMeta(lang);
-  const views = await get30DayViewCounts(posts.map((p) => p.slug));
+  const views = await getRollingViewCounts(posts.map((p) => p.slug));
   const tr = t(lang);
 
   const sorted = [...posts]
     .sort((a, b) => (views[b.slug] ?? 0) - (views[a.slug] ?? 0))
-    .slice(0, 10);
+    .slice(0, POPULAR_POSTS_COUNT);
 
   return (
     <div

@@ -3,6 +3,7 @@
 import Fuse from "fuse.js";
 import { useEffect, useRef, useState } from "react";
 
+import { SEARCH_FUZZY_THRESHOLD } from "@/lib/constants";
 import { Lang, t } from "@/lib/i18n";
 import { PostMeta } from "@/lib/posts";
 
@@ -19,7 +20,10 @@ export default function SearchButton({ posts, lang }: SearchButtonProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const tr = t(lang);
 
-  const fuse = new Fuse(posts, { keys: ["title", "description", "tags"], threshold: 0.4 });
+  const fuse = new Fuse(posts, {
+    keys: ["title", "description", "tags"],
+    threshold: SEARCH_FUZZY_THRESHOLD,
+  });
   const results = query.trim() === "" ? [] : fuse.search(query).map((r) => r.item);
 
   useEffect(() => {

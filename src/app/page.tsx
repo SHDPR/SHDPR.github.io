@@ -1,10 +1,11 @@
 import PostCard from "@/components/PostCard";
+import { RECENT_POSTS_COUNT } from "@/lib/constants";
 import { getLang, t } from "@/lib/i18n";
 import { getAllPostsMeta } from "@/lib/posts";
 
 export default async function Home() {
   const lang = await getLang();
-  const posts = getAllPostsMeta(lang).slice(0, 5);
+  const posts = getAllPostsMeta(lang).slice(0, RECENT_POSTS_COUNT);
   const tr = t(lang);
 
   return (

@@ -1,5 +1,11 @@
 import { Redis } from "@upstash/redis";
 
+import {
+  CAREER_START_YEAR,
+  SPARKLINE_HEIGHT,
+  SPARKLINE_WIDTH,
+  VIEW_WINDOW_DAYS,
+} from "@/lib/constants";
 import { Lang, t } from "@/lib/i18n";
 
 const redis = new Redis({
@@ -8,9 +14,9 @@ const redis = new Redis({
 });
 
 async function getDailyVisits(): Promise<number[]> {
-  const days = Array.from({ length: 30 }, (_, i) => {
+  const days = Array.from({ length: VIEW_WINDOW_DAYS }, (_, i) => {
     const d = new Date();
-    d.setDate(d.getDate() - (29 - i));
+    d.setDate(d.getDate() - (VIEW_WINDOW_DAYS - 1 - i));
     return d.toISOString().slice(0, 10);
   });
   const keys = days.map((d) => `blog:daily:visits:${d}`);
@@ -18,13 +24,13 @@ async function getDailyVisits(): Promise<number[]> {
     const counts = await redis.mget<number[]>(...keys);
     return counts.map((c) => c ?? 0);
   } catch {
-    return Array(30).fill(0);
+    return Array(VIEW_WINDOW_DAYS).fill(0);
   }
 }
 
 function Sparkline({ data }: { data: number[] }) {
-  const W = 110;
-  const H = 48;
+  const W = SPARKLINE_WIDTH;
+  const H = SPARKLINE_HEIGHT;
   const max = Math.max(...data, 1);
   const min = Math.min(...data);
   const range = max - min || 1;
@@ -62,7 +68,7 @@ function Sparkline({ data }: { data: number[] }) {
 export default async function AboutWidget({ lang }: { lang: Lang }) {
   const tr = t(lang);
   const visits = await getDailyVisits();
-  const yrs = new Date().getFullYear() - 2023;
+  const yrs = new Date().getFullYear() - CAREER_START_YEAR;
 
   return (
     <div

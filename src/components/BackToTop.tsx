@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 
+import { BACK_TO_TOP_THRESHOLD_PX } from "@/lib/constants";
+
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
+    const onScroll = () => setVisible(window.scrollY > BACK_TO_TOP_THRESHOLD_PX);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
+import { LANG_COOKIE_MAX_AGE } from "@/lib/constants";
 import { Lang } from "@/lib/i18n";
 
 export default function LanguageToggle({ lang }: { lang: Lang }) {
@@ -9,7 +10,7 @@ export default function LanguageToggle({ lang }: { lang: Lang }) {
 
   function toggle() {
     const next = lang === "ko" ? "en" : "ko";
-    document.cookie = `lang=${next}; path=/; max-age=31536000`;
+    document.cookie = `lang=${next}; path=/; max-age=${LANG_COOKIE_MAX_AGE}`;
     router.refresh();
   }
 
