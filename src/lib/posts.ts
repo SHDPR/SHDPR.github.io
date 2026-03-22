@@ -43,11 +43,12 @@ export function getAllPostsMeta(lang: Lang = "ko"): PostMeta[] {
       const slug = fileName.replace(/\.md$/, "");
       const { data } = readPostFile(slug, lang);
 
+      const rawDatetime = data.datetime ?? data.date;
       return {
         slug,
         title: data.title ?? "Untitled",
-        date: data.date ?? "",
-        datetime: data.datetime ?? data.date ?? "",
+        date: data.date instanceof Date ? data.date.toISOString().slice(0, 10) : (data.date ?? ""),
+        datetime: rawDatetime ? new Date(rawDatetime).toISOString() : "",
         tags: data.tags ?? [],
         description: data.description ?? "",
       } as PostMeta;
@@ -62,11 +63,12 @@ export async function getPostBySlug(slug: string, lang: Lang = "ko"): Promise<Po
   const processed = await remark().use(remarkGfm).use(html).process(content);
   const contentHtml = processed.toString();
 
+  const rawDatetime = data.datetime ?? data.date;
   return {
     slug,
     title: data.title ?? "Untitled",
-    date: data.date ?? "",
-    datetime: data.datetime ?? data.date ?? "",
+    date: data.date instanceof Date ? data.date.toISOString().slice(0, 10) : (data.date ?? ""),
+    datetime: rawDatetime ? new Date(rawDatetime).toISOString() : "",
     tags: data.tags ?? [],
     description: data.description ?? "",
     contentHtml,
