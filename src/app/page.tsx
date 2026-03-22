@@ -9,27 +9,6 @@ export default async function Home() {
 
   return (
     <div style={{ position: "relative" }}>
-      {/* Deep shelf wave — homepage only, fixed behind viewport top */}
-      <svg
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "560px",
-          zIndex: -1,
-          pointerEvents: "none",
-        }}
-        viewBox="0 0 1440 560"
-        preserveAspectRatio="xMidYMax slice"
-      >
-        <path
-          className="bg-wave"
-          d="M0,0 L1440,0 L1440,430 C1200,512 900,475 600,455 C300,435 140,496 0,478 Z"
-        />
-      </svg>
       {/* Hero */}
       <section className="pt-0 pb-10">
         <h1

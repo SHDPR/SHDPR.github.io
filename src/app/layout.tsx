@@ -98,6 +98,27 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col">
+        {/* Wave shelf — fixed behind every page */}
+        <svg
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "560px",
+            zIndex: -1,
+            pointerEvents: "none",
+          }}
+          viewBox="0 0 1440 560"
+          preserveAspectRatio="xMidYMax slice"
+        >
+          <path
+            className="bg-wave"
+            d="M0,0 L1440,0 L1440,430 C1200,512 900,475 600,455 C300,435 140,496 0,478 Z"
+          />
+        </svg>
         <VisitorTracker />
         <Header lang={lang} />
         <div className="flex-1 w-full max-w-5xl mx-auto px-4 py-10">
