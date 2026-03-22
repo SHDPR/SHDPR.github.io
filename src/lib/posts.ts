@@ -14,6 +14,7 @@ export interface PostMeta {
   slug: string;
   title: string;
   date: string;
+  datetime: string;
   tags: string[];
   description: string;
 }
@@ -46,12 +47,13 @@ export function getAllPostsMeta(lang: Lang = "ko"): PostMeta[] {
         slug,
         title: data.title ?? "Untitled",
         date: data.date ?? "",
+        datetime: data.datetime ?? data.date ?? "",
         tags: data.tags ?? [],
         description: data.description ?? "",
       } as PostMeta;
     });
 
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return posts.sort((a, b) => (a.datetime < b.datetime ? 1 : -1));
 }
 
 export async function getPostBySlug(slug: string, lang: Lang = "ko"): Promise<Post> {
@@ -64,6 +66,7 @@ export async function getPostBySlug(slug: string, lang: Lang = "ko"): Promise<Po
     slug,
     title: data.title ?? "Untitled",
     date: data.date ?? "",
+    datetime: data.datetime ?? data.date ?? "",
     tags: data.tags ?? [],
     description: data.description ?? "",
     contentHtml,

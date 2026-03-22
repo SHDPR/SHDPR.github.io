@@ -1,6 +1,7 @@
 ---
 title: "Tech Stack Behind This Blog"
-date: "2026-03-23"
+date: "2026-03-22"
+datetime: "2026-03-22T12:09:27+09:00"
 tags: ["TECH"]
 description: "From frontend to database, comments, and deployment — every component explained"
 ---
