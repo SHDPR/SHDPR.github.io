@@ -89,20 +89,32 @@ export default async function AboutWidget({ lang }: { lang: Lang }) {
             }}
           >
             {tr.about_role(yrs)}
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--accent-1)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{ flexShrink: 0 }}
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 20,
+                height: 20,
+                borderRadius: 4,
+                backgroundColor: "#111111",
+                flexShrink: 0,
+              }}
             >
-              <polyline points="4 17 10 11 4 5" />
-              <line x1="12" y1="19" x2="20" y2="19" />
-            </svg>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="4 17 10 11 4 5" />
+                <line x1="12" y1="19" x2="20" y2="19" />
+              </svg>
+            </span>
           </p>
         </div>
       </div>

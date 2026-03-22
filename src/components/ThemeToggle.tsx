@@ -12,24 +12,31 @@ export default function ThemeToggle() {
 
   function toggle() {
     const next = theme === "dark" ? "light" : "dark";
-    const apply = () => {
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-      setTheme(next);
-    };
+    const newBg = next === "dark" ? "#1a1a1a" : "#ffffff";
 
-    if (!document.startViewTransition) {
-      apply();
-      return;
-    }
+    const overlay = document.createElement("div");
+    overlay.style.cssText = `
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: ${newBg};
+      clip-path: inset(0 0 100% 0);
+      pointer-events: none;
+    `;
+    document.body.appendChild(overlay);
 
-    const transition = document.startViewTransition(apply);
-    transition.ready.then(() => {
-      document.documentElement.animate(
-        { clipPath: ["inset(0 0 100% 0)", "inset(0 0 0% 0)"] },
-        { duration: 500, easing: "ease", pseudoElement: "::view-transition-new(root)" },
-      );
-    });
+    overlay
+      .animate([{ clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)" }], {
+        duration: 500,
+        easing: "ease-in-out",
+        fill: "forwards",
+      })
+      .finished.then(() => {
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        setTheme(next);
+        overlay.remove();
+      });
   }
 
   return (

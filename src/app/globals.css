@@ -31,12 +31,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* View Transitions: disable default cross-fade, animation controlled via JS */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-}
-
 /* Smooth theme transition for all elements */
 *,
 *::before,
