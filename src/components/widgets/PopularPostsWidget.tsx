@@ -1,22 +1,10 @@
-import { Redis } from "@upstash/redis";
 import Link from "next/link";
 
 import { POPULAR_POSTS_COUNT, VIEW_WINDOW_DAYS } from "@/lib/constants";
+import { getLastNDays } from "@/lib/dates";
 import { Lang, t } from "@/lib/i18n";
 import { getAllPostsMeta } from "@/lib/posts";
-
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
-
-function getLastNDays(n: number): string[] {
-  return Array.from({ length: n }, (_, i) => {
-    const d = new Date();
-    d.setDate(d.getDate() - (n - 1 - i));
-    return d.toISOString().slice(0, 10);
-  });
-}
+import { redis } from "@/lib/redis";
 
 async function getRollingViewCounts(slugs: string[]): Promise<Record<string, number>> {
   if (slugs.length === 0) return {};

@@ -1,13 +1,9 @@
-import { Redis } from "@upstash/redis";
 import { NextResponse } from "next/server";
 
 import { VIEW_TTL_SECONDS } from "@/lib/constants";
+import { getTodayDateString } from "@/lib/dates";
 import { getAllPostsMeta } from "@/lib/posts";
-
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
+import { redis } from "@/lib/redis";
 
 // Cache valid slugs at module level (refreshed on cold start)
 let validSlugs: Set<string> | null = null;
@@ -27,7 +23,7 @@ export async function POST(_req: Request, { params }: { params: Promise<{ slug: 
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = getTodayDateString();
   const dailyKey = `post:daily:views:${slug}:${today}`;
   const totalKey = `post:views:${slug}`;
 

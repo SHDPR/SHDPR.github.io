@@ -1,3 +1,4 @@
+import { RSS_CACHE_MAX_AGE_SECONDS } from "@/lib/constants";
 import { getAllPostsMeta } from "@/lib/posts";
 
 const BASE_URL = "https://shdpr-github-io.vercel.app";
@@ -44,7 +45,7 @@ ${items}
   return new Response(xml, {
     headers: {
       "Content-Type": "application/rss+xml; charset=utf-8",
-      "Cache-Control": "s-maxage=3600, stale-while-revalidate",
+      "Cache-Control": `s-maxage=${RSS_CACHE_MAX_AGE_SECONDS}, stale-while-revalidate`,
     },
   });
 }

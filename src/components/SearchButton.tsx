@@ -3,7 +3,7 @@
 import Fuse from "fuse.js";
 import { useEffect, useRef, useState } from "react";
 
-import { SEARCH_FUZZY_THRESHOLD } from "@/lib/constants";
+import { SEARCH_FUZZY_THRESHOLD, SEARCH_MODAL_Z_INDEX } from "@/lib/constants";
 import { Lang, t } from "@/lib/i18n";
 import { PostMeta } from "@/lib/posts";
 
@@ -83,7 +83,7 @@ export default function SearchButton({ posts, lang }: SearchButtonProps) {
           style={{
             position: "fixed",
             inset: 0,
-            zIndex: 200,
+            zIndex: SEARCH_MODAL_Z_INDEX,
             backgroundColor: "var(--bg)",
             display: "flex",
             flexDirection: "column",

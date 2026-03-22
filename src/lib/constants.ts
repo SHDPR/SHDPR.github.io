@@ -30,6 +30,9 @@ export const SPARKLINE_HEIGHT = 48;
 /** Fuse.js fuzzy-match threshold: 0 = exact, 1 = match anything. */
 export const SEARCH_FUZZY_THRESHOLD = 0.4;
 
+/** z-index for the full-screen search modal overlay. */
+export const SEARCH_MODAL_Z_INDEX = 200;
+
 // ── UI / Scroll ────────────────────────────────────────────────────────────────
 
 /** Scroll distance in pixels before the Back to Top button appears. */

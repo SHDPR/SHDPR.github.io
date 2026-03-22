@@ -1,24 +1,15 @@
-import { Redis } from "@upstash/redis";
-
 import {
   CAREER_START_YEAR,
   SPARKLINE_HEIGHT,
   SPARKLINE_WIDTH,
   VIEW_WINDOW_DAYS,
 } from "@/lib/constants";
+import { getLastNDays } from "@/lib/dates";
 import { Lang, t } from "@/lib/i18n";
-
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
+import { redis } from "@/lib/redis";
 
 async function getDailyVisits(): Promise<number[]> {
-  const days = Array.from({ length: VIEW_WINDOW_DAYS }, (_, i) => {
-    const d = new Date();
-    d.setDate(d.getDate() - (VIEW_WINDOW_DAYS - 1 - i));
-    return d.toISOString().slice(0, 10);
-  });
+  const days = getLastNDays(VIEW_WINDOW_DAYS);
   const keys = days.map((d) => `blog:daily:visits:${d}`);
   try {
     const counts = await redis.mget<number[]>(...keys);
