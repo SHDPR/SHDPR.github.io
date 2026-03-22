@@ -75,14 +75,14 @@ export default async function AboutWidget({ lang }: { lang: Lang }) {
           <Sparkline data={visits} />
         </div>
         {/* Avatar + role — right side */}
-        <div className="flex flex-col items-end gap-2 shrink-0">
+        <div className="flex flex-col items-end gap-2 shrink-0 min-w-0 max-w-[60%]">
           <img
             src="/avatar.jpg"
             alt="avatar"
             className="w-24 h-24 rounded-full object-cover object-top"
           />
           <p
-            className="text-sm font-medium text-right flex items-center gap-1.5 justify-end"
+            className="text-sm font-medium text-right flex items-center gap-1.5 justify-end w-full overflow-hidden"
             style={{
               color: "var(--text-muted)",
               fontFamily: "var(--font-playfair), var(--font-korean), serif",
