@@ -2,6 +2,7 @@ export const translations = {
   ko: {
     nav_blog: "블로그",
     nav_tags: "태그",
+    nav_simulator: "시뮬레이터",
     about_role: (yrs: number) => `${yrs}년차 SSD FW 엔지니어`,
     category_title: "카테고리",
     category_empty: "카테고리가 없습니다.",
@@ -26,6 +27,7 @@ export const translations = {
   en: {
     nav_blog: "Blog",
     nav_tags: "Tags",
+    nav_simulator: "Simulator",
     about_role: (yrs: number) => `${yrs}-Year SSD FW Engineer`,
     category_title: "Categories",
     category_empty: "No categories yet.",

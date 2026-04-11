@@ -70,6 +70,12 @@ export default function Header({ lang }: { lang: Lang }) {
             >
               {tr.nav_tags}
             </Link>
+            <Link
+              href="/simulator"
+              className="transition-colors duration-200 hover:text-[var(--accent-1)]"
+            >
+              {tr.nav_simulator}
+            </Link>
           </nav>
           <div className="flex items-center gap-2">
             <SearchButton posts={posts} lang={lang} />
